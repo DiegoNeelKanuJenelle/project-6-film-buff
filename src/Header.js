@@ -9,6 +9,8 @@ const Header = () => {
         <h1>Film Buff</h1>
         <Link to='/English'> Catalogue</Link>
         <Route path="/English" component={EnglishSearchComponent} />
+        <Link to='/Foreign'> Foreigns</Link>
+        <Route path="/Foreign" component={ForeignSearchComponent} />
     </header>
     )
 }

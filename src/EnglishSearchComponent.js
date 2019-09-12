@@ -8,11 +8,10 @@ class EnglishSearchComponent extends Component{
         super();
         this.state = {
             userInput: '',
-            englishMovies: []
+            englishMovies: [],
+            genresIds: []
         }
     }
-
-
 
     handleChange = (event) => {
         const { name, value } = event.target;
@@ -29,11 +28,11 @@ class EnglishSearchComponent extends Component{
         axios({
             url: `https://api.themoviedb.org/3/search/movie`,
             params: {
-                api_key: '37127aeb4753ff74ef22b9e85d9ace5b',
+                "api_key": '37127aeb4753ff74ef22b9e85d9ace5b',
                 language: 'en-US',
                 query: this.state.userInput,
                 page: 1,
-                include_adult: false,
+                "include_adult": false
             }   
         }).then((res) => {
             // console.log(res)
@@ -50,6 +49,13 @@ class EnglishSearchComponent extends Component{
     }
 
 
+    imageClick = (id) => {
+        this.setState({
+            genresIds: movie[2]
+        })
+    }
+
+
     render(){
         return(
             <div>
@@ -61,7 +67,13 @@ class EnglishSearchComponent extends Component{
                 </div>
                 <ul>
                     {this.state.englishMovies.map(movie => {
-                        return <img src={`http://image.tmdb.org/t/p/w500${movie[1]}`} alt={movie[0]} key={movie[4]} />
+                        return (
+                        <div>
+
+                            <Link to='/Foreign'> <img src={`http://image.tmdb.org/t/p/w500${movie[1]}`} alt={movie[0]} key={movie[4]} onClick={() => { this.imageClick(movie[2]) }} /> </Link>
+                            <Route path="/Foreign" component={ForeignSearchComponent} />
+                        </div> 
+                        )
                     })}
                 </ul>
             </div>
