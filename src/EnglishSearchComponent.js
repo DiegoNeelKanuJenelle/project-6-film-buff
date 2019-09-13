@@ -2,25 +2,34 @@ import React, { Component } from "react";
 import ForeignRelatedComponent from "./ForeignRelatedComponent";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
+import Modal from "./Modal/Modal";
 import axios from "axios";
-
 class EnglishSearchComponent extends Component {
   constructor() {
     super();
     this.state = {
       userInput: "",
       englishMovies: [],
-      genresIds: []
+      genresIds: [],
+      isShowing: false
     };
   }
-
+  openModalHandler = () => {
+    this.setState({
+      isShowing: true
+    });
+  };
+  closeModalHandler = () => {
+    this.setState({
+      isShowing: false
+    });
+  };
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-
   handleAutofill = event => {
     event.preventDefault();
     this.setState({
@@ -53,7 +62,6 @@ class EnglishSearchComponent extends Component {
       });
     });
   };
-
   render() {
     return (
       <div>
@@ -64,7 +72,7 @@ class EnglishSearchComponent extends Component {
               name="userInput"
               value={this.state.userInput}
               onChange={this.handleChange}
-              onKeyUp={this.handleAutofill}
+              // onKeyUp={this.handleAutofill}
             />
             <button>Search movies</button>
           </form>
@@ -73,20 +81,40 @@ class EnglishSearchComponent extends Component {
           {this.state.englishMovies.map(movie => {
             return (
               <div key={movie[4]}>
-                <Link
+                {/* <Link
                   to={{
                     pathname: "/Foreign",
                     state: {
                       genreIds: movie[2]
                     }
                   }}
+                > */}
+                {this.state.isShowing ? (
+                  <div
+                    onClick={this.closeModalHandler}
+                    className="back-drop"
+                  ></div>
+                ) : null}
+                <button
+                  className="open-modal-btn"
+                  onClick={this.openModalHandler}
                 >
-                  <img
-                    src={`http://image.tmdb.org/t/p/w500${movie[1]}`}
-                    alt={movie[0]}
-                  />{" "}
-                </Link>
-                <Route path="/Foreign" component={ForeignRelatedComponent} />
+                  Open Modal
+                </button>
+                <Modal
+                  className="modal"
+                  show={this.state.isShowing}
+                  close={this.closeModalHandler}
+                >
+                  Maybe aircrafts fly very high because they don't want to be
+                  seen in plane sight?
+                </Modal>
+                <img
+                  src={`http://image.tmdb.org/t/p/w500${movie[1]}`}
+                  alt={movie[0]}
+                />{" "}
+                {/* </Link> */}
+                {/* <Route path="/Foreign" component={ForeignRelatedComponent} /> */}
               </div>
             );
           })}
@@ -95,5 +123,4 @@ class EnglishSearchComponent extends Component {
     );
   }
 }
-
 export default EnglishSearchComponent;
