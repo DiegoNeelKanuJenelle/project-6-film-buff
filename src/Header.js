@@ -1,21 +1,20 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import EnglishSearchComponent from './EnglishSearchComponent';
-import ForeignRelatedComponent from './ForeignRelatedComponent'
+import EnglishSearchComponent from "./EnglishSearchComponent";
+import ForeignRelatedComponent from "./ForeignRelatedComponent";
 
-
-import './App.css';
+import "./App.css";
 
 const Header = () => {
-    return (
+  return (
     <header className="Header">
-        <h1>Film Buff</h1>
-        <Link to='/English'> Catalogue</Link>
-        <Route path="/English" component={EnglishSearchComponent} />
-        <Link to='/Foreign'> Foreigns</Link>
-        <Route path="/Foreign" component={ForeignRelatedComponent} />
+      <h1>Film Buff</h1>
+      <Link to="/English"> Catalogue</Link>
+      <Route path="/English" component={EnglishSearchComponent} />
+      <Link to="/Foreign"> Foreigns</Link>
+      <Route path="/Foreign" component={ForeignRelatedComponent} />
     </header>
-    )
-}
+  );
+};
 
 export default Header;
