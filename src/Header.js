@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import EnglishSearchComponent from './EnglishSearchComponent' 
+import EnglishSearchComponent from './EnglishSearchComponent';
+import ForeignRelatedComponent from './ForeignRelatedComponent'
+
+
 import './App.css';
 
 const Header = () => {
@@ -10,7 +13,7 @@ const Header = () => {
         <Link to='/English'> Catalogue</Link>
         <Route path="/English" component={EnglishSearchComponent} />
         <Link to='/Foreign'> Foreigns</Link>
-        <Route path="/Foreign" component={ForeignSearchComponent} />
+        <Route path="/Foreign" component={ForeignRelatedComponent} />
     </header>
     )
 }

@@ -11,8 +11,6 @@ class App extends Component  {
       <Router>
         <div className="App">
           <Header />
-          {/* <Route exact path="/search" component={EnglishSearchComponent} /> */}
-          {/* <Route path="/movie/:movieId" component={ForeignRelatedComponent} /> */}
         </div>
       </Router>
     );

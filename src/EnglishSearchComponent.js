@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ForeignRelatedComponent from './ForeignRelatedComponent'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import axios from 'axios'
 
@@ -35,26 +37,16 @@ class EnglishSearchComponent extends Component{
                 "include_adult": false
             }   
         }).then((res) => {
-            // console.log(res)
             const results = res.data["results"];
             const dataFromResults = [];
             results.map( movie =>{
                 return dataFromResults.push([movie.original_title, movie.poster_path,movie.genre_ids,movie.overview,movie.id])
             })
-            console.log(dataFromResults);
             this.setState({
                 englishMovies: dataFromResults
             })
         })
     }
-
-
-    imageClick = (id) => {
-        this.setState({
-            genresIds: movie[2]
-        })
-    }
-
 
     render(){
         return(
@@ -69,9 +61,15 @@ class EnglishSearchComponent extends Component{
                     {this.state.englishMovies.map(movie => {
                         return (
                         <div>
-
-                            <Link to='/Foreign'> <img src={`http://image.tmdb.org/t/p/w500${movie[1]}`} alt={movie[0]} key={movie[4]} onClick={() => { this.imageClick(movie[2]) }} /> </Link>
-                            <Route path="/Foreign" component={ForeignSearchComponent} />
+                            <Link to={{
+                            pathname: "/Foreign",
+                            state: {
+                                genreIds: movie[2]
+                            }
+                            }}>
+                            <img src={`http://image.tmdb.org/t/p/w500${movie[1]}`} alt={movie[0]} key={movie[4]} /> </Link>
+                            {/* onClick={()=>{this.imageClick(movie[2])}} */}
+                            <Route path="/Foreign" component={ForeignRelatedComponent} />
                         </div> 
                         )
                     })}
