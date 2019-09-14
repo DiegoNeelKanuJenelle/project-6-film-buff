@@ -1,11 +1,30 @@
+.back-drop {
+  background-color: rgba(48, 49, 48, 0.42);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000000;
+  transition: all 1.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+.modal-component {
+
+} */
+
 .modal-wrapper {
   background: white;
   border: 1px solid #d0cccc;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   margin: 100px auto 0;
   transition: all 0.8s;
-  width: 60%;
 }
+
 .modal-header {
   background: #263238;
   height: 40px;
@@ -56,13 +75,7 @@
   background-color: #1b5e20;
   float: right;
 }
-.back-drop {
-  background-color: rgba(48, 49, 48, 0.42);
-  height: 100%;
-  position: fixed;
-  transition: all 1.3s;
-  width: 100%;
-}
+
 .open-modal-btn {
   margin: 15px;
   padding: 10px;

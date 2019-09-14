@@ -11,14 +11,17 @@ class EnglishSearchComponent extends Component {
       userInput: "",
       englishMovies: [],
       genresIds: [],
-      isShowing: false
+      isShowing: false,
+      selectedMovie: []
     };
   }
 
-  openModalHandler = () => {
+  openModalHandler = (movie) => {
     this.setState({
+      selectedMovie: movie,
       isShowing: true
     });
+
   };
 
   closeModalHandler = () => {
@@ -92,23 +95,9 @@ class EnglishSearchComponent extends Component {
                   }}
                 > */}
 
-                {this.state.isShowing ? (
-                  <div
-                    onClick={this.closeModalHandler}
-                    className="back-drop"
-                  ></div>
-                ) : null}               
-                <Modal
-                  className="modal"
-                  show={this.state.isShowing}
-                  close={this.closeModalHandler}
-                >
-                  <img src={`http://image.tmdb.org/t/p/w500${movie[1]}`} />
-                </Modal>
-
                 <img
                   style={{ position: 'relative', zIndex: 10 }}
-                  onClick={this.openModalHandler}
+                  onClick={() => {this.openModalHandler(movie)}}
                   src={`http://image.tmdb.org/t/p/w500${movie[1]}`}
                   alt={"Click me please"}
                 />
@@ -119,7 +108,26 @@ class EnglishSearchComponent extends Component {
             );
           })}
         </ul>
-      </div>
+
+        {this.state.isShowing ? (
+          <div
+            onClick={this.closeModalHandler}
+            className="back-drop"
+          >
+           <Modal
+          className="modal-component"
+          show={this.state.isShowing}
+          close={this.closeModalHandler}
+        >
+          <img src={`http://image.tmdb.org/t/p/w500${this.state.selectedMovie[1]}`} />
+        </Modal>
+          
+          </div>
+        ) : null}    
+                    
+       
+
+       </div>
     );
   }
 }
