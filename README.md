@@ -1,12 +1,17 @@
 Pseudo-Code
 
 1 Create a form with an input where the user can type to search their desired movie.
-2 On form submit, make an api call with the user input. If no results are found, return an error message.
-3 Print all matching movies to the screen. 
-4 When user selects a movie, save the metadata of that movie to the state object.
-5 Use all genre IDs from the English movie to make a 2nd API call. If no foreign movies are found, then make extra calls using less genre IDs.
-6 With the data returned from the 2nd API call, filter out English movies & render remaining foreign results
-7 Allow the user to select one or more foreign movies to save with their English movie
+
+2 On form submit, make an API call with the user input. If no results are found, return an error message.
+3 Print all matching movies to the screen.
+
+4 When user selects a movie, save the metadata of that movie to the state object and make a modal pop up with the information/description of the movie.
+
+5 If user clicks on button inside modal, take them to the foreign movies page where we use the genre IDs from the English movie to make a 2nd API call. With the data returned from the 2nd API call, filter out English movies & render remaining foreign results. Print all the related foreign movies to the page.
+
+6 When user selects a movie, save the metadata of that movie to the state object and make a modal pop up with the information/description of the movie.
+
+7 Allow the user to select one or more foreign movies to save with their English movie.
 8 When user presses save button, save the list to Firebase
 9 Append and render the saved list to the public list 
 

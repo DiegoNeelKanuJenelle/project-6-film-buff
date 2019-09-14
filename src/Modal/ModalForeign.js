@@ -18,23 +18,14 @@ const modal = props => {
           <p>{props.moviePoster}</p>
           <span className="close-modal-btn" onClick={props.close}></span>
         </div>
-
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
           <button className="btn-cancel" onClick={props.close}>
             CLOSE
           </button>
-          <Link
-            to={{
-              pathname: "/Foreign",
-              state: {
-                englishMovie: props.englishMovie
-              }
-            }}
-          >
-            <button className="btn-continue">CONTINUE</button>
-          </Link>
-          <Route path="/Foreign" component={ForeignRelatedComponent} />
+          <button className="btn-continue" onClick={props.saveToDb}>
+            Save Foreign Movie
+          </button>
         </div>
       </div>
     </div>

@@ -4,16 +4,21 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import firebase from "./firebase";
+import Modal from "./Modal/ModalForeign";
+
 class ForeignRelatedComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      foreignArray: []
+      foreignArray: [],
+      isShowing: false,
+      selectedForeignMovie: [],
+      arrayFromDb: []
     };
   }
   componentDidMount() {
-    const narrowedGenreString = this.props.location.state.genreIds
-      .splice(0, 2)
+    const narrowedGenreString = this.props.location.state.englishMovie[2]
+      // .splice(0, 2)
       .join(); // narrows down genre ID string to only include the first 2 genre IDs
 
     this.makeApiCall(1, narrowedGenreString);
@@ -45,7 +50,7 @@ class ForeignRelatedComponent extends Component {
         () => {
           if (this.state.foreignArray.length < 11) {
             num++;
-            console.log(`the loop has run ${num} times`);
+            console.log(`the functio has been called ${num} times`);
             this.makeApiCall(num, narrowedGenreString);
           } else {
           }
@@ -54,26 +59,70 @@ class ForeignRelatedComponent extends Component {
     });
   };
 
-  savetoDb = () => {
-    const dbRef = firebase.database().ref();
-    dbRef.push("HELLO!!!!");
-
-    dbRef.on("value", response => {
-      console.log(response.val());
+  openModalHandler = movie => {
+    this.setState({
+      selectedForeignMovie: movie,
+      isShowing: true
     });
+  };
+
+  closeModalHandler = () => {
+    this.setState({
+      isShowing: false
+    });
+  };
+
+  saveToDb = () => {
+    const dbRef = firebase.database().ref();
+
+    dbRef.push([
+      [
+        this.props.location.state.englishMovie[0],
+        this.props.location.state.englishMovie[4],
+        this.props.location.state.englishMovie[5],
+        this.props.location.state.englishMovie[3],
+        this.props.location.state.englishMovie[1]
+      ],
+      [
+        this.state.selectedForeignMovie.title,
+        this.state.selectedForeignMovie.id,
+        this.state.selectedForeignMovie.original_language,
+        this.state.selectedForeignMovie.overview,
+        this.state.selectedForeignMovie.poster_path
+      ]
+    ]);
   };
 
   render() {
     return (
       <div>
-        <button onClick={this.savetoDb}>Hi</button>
         {this.state.foreignArray.map(movie => {
           return (
             <img
+              style={{ position: "relative", zIndex: 10 }}
+              onClick={() => {
+                this.openModalHandler(movie);
+              }}
               src={`http://image.tmdb.org/t/p/w500${movie["poster_path"]}`}
             />
           );
         })}
+        {this.state.isShowing ? (
+          <div onClick={this.closeModalHandler} className="back-drop">
+            <Modal
+              className="modal-component"
+              show={this.state.isShowing}
+              close={this.closeModalHandler}
+              modalarray={this.state.selectedForeignMovie}
+              saveToDb={this.saveToDb}
+            >
+              <img
+                style={{ height: "200px" }}
+                src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
+              />
+            </Modal>
+          </div>
+        ) : null}
       </div>
     );
   }

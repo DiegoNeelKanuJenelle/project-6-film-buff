@@ -39,9 +39,12 @@
   padding: 0;
 }
 .modal-body {
+  /* height: 100px; */
   padding: 10px 15px;
   text-align: center;
 }
+
+
 .modal-footer {
   background: #263238;
   height: 35px;

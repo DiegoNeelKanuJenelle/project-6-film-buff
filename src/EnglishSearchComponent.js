@@ -4,24 +4,23 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Modal from "./Modal/Modal";
 import axios from "axios";
+
 class EnglishSearchComponent extends Component {
   constructor() {
     super();
     this.state = {
       userInput: "",
       englishMovies: [],
-      genresIds: [],
       isShowing: false,
-      selectedMovie: []
+      selectedEnglishMovie: []
     };
   }
 
-  openModalHandler = (movie) => {
+  openModalHandler = movie => {
     this.setState({
-      selectedMovie: movie,
+      selectedEnglishMovie: movie,
       isShowing: true
     });
-
   };
 
   closeModalHandler = () => {
@@ -51,17 +50,22 @@ class EnglishSearchComponent extends Component {
       }
     }).then(res => {
       const results = res.data["results"];
+
       console.log(results);
+
       const dataFromResults = [];
-      results.map(movie => {
-        return dataFromResults.push([
+
+      results.forEach(movie => {
+        dataFromResults.push([
           movie.original_title,
           movie.poster_path,
           movie.genre_ids,
           movie.overview,
-          movie.id
+          movie.id,
+          movie.original_language,
         ]);
       });
+
       this.setState({
         englishMovies: dataFromResults
       });
@@ -86,48 +90,38 @@ class EnglishSearchComponent extends Component {
           {this.state.englishMovies.map(movie => {
             return (
               <div key={movie[4]}>
-                {/* <Link
-                  to={{
-                    pathname: "/Foreign",
-                    state: {
-                      genreIds: movie[2]
-                    }
+              <img
+                  style={{ position: "relative", zIndex: 10 }}
+                  onClick={() => {
+                    this.openModalHandler(movie);
                   }}
-                > */}
+                  src={movie[1] !== null ? `http://image.tmdb.org/t/p/w500${movie[1]}` : `https://images.ctfassets.net/kjeq3om28nk5/29EdaLLFGICqU4OwMOUumE/cf9e89ee7dac5795db6730681157d350/2019-Winter_Bootcamp-Asaf-Gerchak-1.jpg?w=800&q=50`}
 
-                <img
-                  style={{ position: 'relative', zIndex: 10 }}
-                  onClick={() => {this.openModalHandler(movie)}}
-                  src={`http://image.tmdb.org/t/p/w500${movie[1]}`}
-                  alt={"Click me please"}
-                />
-
-                {/* </Link> */}
-                {/* <Route path="/Foreign" component={ForeignRelatedComponent} /> */}
+                  alt={movie[1] !== null ? `Movie poster for ${movie[0]}` : 'TROLOLOLOL'}
+                  />
               </div>
             );
           })}
         </ul>
 
         {this.state.isShowing ? (
-          <div
-            onClick={this.closeModalHandler}
-            className="back-drop"
-          >
-           <Modal
-          className="modal-component"
-          show={this.state.isShowing}
-          close={this.closeModalHandler}
-        >
-          <img src={`http://image.tmdb.org/t/p/w500${this.state.selectedMovie[1]}`} />
-        </Modal>
-          
+          <div onClick={this.closeModalHandler} className="back-drop">
+            <Modal
+              className="modal-component"
+              show={this.state.isShowing}
+              close={this.closeModalHandler}
+              englishMovie={this.state.selectedEnglishMovie}
+            >
+              <img
+                style={{ height: "200px" }}
+                src={`http://image.tmdb.org/t/p/w500${
+                  this.state.selectedEnglishMovie[1]
+                }`}
+              />
+            </Modal>
           </div>
-        ) : null}    
-                    
-       
-
-       </div>
+        ) : null}
+      </div>
     );
   }
 }
