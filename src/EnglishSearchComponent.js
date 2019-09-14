@@ -14,11 +14,13 @@ class EnglishSearchComponent extends Component {
       isShowing: false
     };
   }
+
   openModalHandler = () => {
     this.setState({
       isShowing: true
     });
   };
+
   closeModalHandler = () => {
     this.setState({
       isShowing: false
@@ -89,30 +91,28 @@ class EnglishSearchComponent extends Component {
                     }
                   }}
                 > */}
+
                 {this.state.isShowing ? (
                   <div
                     onClick={this.closeModalHandler}
                     className="back-drop"
                   ></div>
-                ) : null}
-                <button
-                  className="open-modal-btn"
-                  onClick={this.openModalHandler}
-                >
-                  Open Modal
-                </button>
+                ) : null}               
                 <Modal
                   className="modal"
                   show={this.state.isShowing}
                   close={this.closeModalHandler}
                 >
-                  Maybe aircrafts fly very high because they don't want to be
-                  seen in plane sight?
+                  <img src={`http://image.tmdb.org/t/p/w500${movie[1]}`} />
                 </Modal>
+
                 <img
+                  style={{ position: 'relative', zIndex: 10 }}
+                  onClick={this.openModalHandler}
                   src={`http://image.tmdb.org/t/p/w500${movie[1]}`}
-                  alt={movie[0]}
-                />{" "}
+                  alt={"Click me please"}
+                />
+
                 {/* </Link> */}
                 {/* <Route path="/Foreign" component={ForeignRelatedComponent} /> */}
               </div>

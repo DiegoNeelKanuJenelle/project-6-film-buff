@@ -12,12 +12,13 @@ const modal = props => {
       >
         <div className="modal-header">
           <h3>Modal Header</h3>
+          <p>{props.moviePoster}</p>
           <span className="close-modal-btn" onClick={props.close}>
-            ×
           </span>
         </div>
+        
         <div className="modal-body">
-          <p>{props.children}</p>
+          {props.children}
         </div>
         <div className="modal-footer">
           <button className="btn-cancel" onClick={props.close}>
@@ -28,5 +29,5 @@ const modal = props => {
       </div>
     </div>
   );
-};
+};  
 export default modal;
