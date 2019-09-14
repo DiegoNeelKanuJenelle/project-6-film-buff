@@ -11,12 +11,6 @@ const Header = () => {
     <header className="Header">
       <h1>Film Buff</h1>
       <Link to="/English"> Catalogue</Link>
-      <Route path="/English" component={EnglishSearchComponent} />
-      <Link to="/Foreign">Foreigns</Link>
-      <Route path="/Foreign" component={ForeignRelatedComponent} />
-
-      <Link to="/Feed">Feed</Link>
-      <Route path="/Feed" component={PublicFeed} />
     </header>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Modal.css";
+// import "./Modal.css";
 import ForeignRelatedComponent from "../ForeignRelatedComponent";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -13,16 +13,18 @@ const modal = props => {
           opacity: props.show ? "1" : "0"
         }}
       >
+        <div className='modalTopBar'>
+          <button className="btn-cancel" onClick={props.close}>
+            CLOSE
+          </button>
+        </div>
         <div className="modal-header">
-          <h3>Modal Header</h3>
-          <p>{props.moviePoster}</p>
+          <h3>{props.modalarray.title}</h3>
           <span className="close-modal-btn" onClick={props.close}></span>
         </div>
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
-          <button className="btn-cancel" onClick={props.close}>
-            CLOSE
-          </button>
+          
           <button className="btn-continue" onClick={props.saveToDb}>
             Save Foreign Movie
           </button>

@@ -2,6 +2,7 @@
 //Pass props to your constructor and super and in the state , create an empty foreignArray.
 import React, { Component } from "react";
 import "./App.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 import firebase from "./firebase";
 import Modal from "./Modal/ModalForeign";
@@ -116,8 +117,11 @@ class ForeignRelatedComponent extends Component {
               modalarray={this.state.selectedForeignMovie}
               saveToDb={this.saveToDb}
             >
+              <p>{this.state.selectedForeignMovie.overview}</p>
+              <p>Released:{this.state.selectedForeignMovie.release_date}</p>
+              <p>Popularity{this.state.selectedForeignMovie.popularity}</p>
               <img
-                style={{ height: "200px" }}
+                style={{ height: "400px" }}
                 src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
               />
             </Modal>

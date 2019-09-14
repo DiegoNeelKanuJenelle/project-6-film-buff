@@ -63,6 +63,8 @@ class EnglishSearchComponent extends Component {
           movie.overview,
           movie.id,
           movie.original_language,
+          movie.release_date,
+          movie.popularity
         ]);
       });
 
@@ -112,8 +114,11 @@ class EnglishSearchComponent extends Component {
               close={this.closeModalHandler}
               englishMovie={this.state.selectedEnglishMovie}
             >
+              <p>{this.state.selectedEnglishMovie[3]}</p>
+              <p>Released:{this.state.selectedEnglishMovie[6]}</p>
+              <p>Popularity{this.state.selectedEnglishMovie[7]}</p>
               <img
-                style={{ height: "200px" }}
+                // style={{ height: "400px" }}
                 src={`http://image.tmdb.org/t/p/w500${
                   this.state.selectedEnglishMovie[1]
                 }`}
