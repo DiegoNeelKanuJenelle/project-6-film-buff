@@ -87,14 +87,18 @@ class ForeignRelatedComponent extends Component {
         this.props.location.state.englishMovie[4],
         this.props.location.state.englishMovie[5],
         this.props.location.state.englishMovie[3],
-        this.props.location.state.englishMovie[1]
+        this.props.location.state.englishMovie[1],
+        this.props.location.state.englishMovie[6],
+        this.props.location.state.englishMovie[7]
       ],
       [
         this.state.selectedForeignMovie.title,
         this.state.selectedForeignMovie.id,
         this.state.selectedForeignMovie.original_language,
         this.state.selectedForeignMovie.overview,
-        this.state.selectedForeignMovie.poster_path
+        this.state.selectedForeignMovie.poster_path,
+        this.state.selectedForeignMovie.release_date,
+        this.state.selectedForeignMovie.popularity
       ]
     ]);
   };

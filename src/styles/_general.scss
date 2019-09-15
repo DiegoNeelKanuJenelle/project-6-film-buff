@@ -1,0 +1,20 @@
+body {
+  background: $background;
+  @include bodyFont;
+}
+
+.wrapper {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}

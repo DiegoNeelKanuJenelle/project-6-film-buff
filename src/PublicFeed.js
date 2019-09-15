@@ -28,23 +28,37 @@ class PublicFeed extends Component {
 
   render() {
     return (
-      <section>
-        <h2>Check out these matches ! <span>If you liked... then checkout..</span></h2> 
+      <section className="publicFeed">
+        {/* <h2>Check out these matches ! <span>If you liked... then checkout..</span></h2>  */}
         <ul>
           {this.state.savedMovies.map((movie, index) => {
             return (
-              <li key={index}>
+              <li className="listItem" key={index}>
                 <div className="savedEnglishMovie">
-                  <img className="publicImage"src={`http://image.tmdb.org/t/p/w500${movie[0][4]}`} alt ={movie[0][0]}/>
-                  <p className="title">{movie[0][0]}</p>
-                  <p className="description">{movie[0][3]}</p>
-                  <p className="Language">{movie[0][2]}</p>
+                  <div className="topPublic">
+                    <h3>If you liked</h3>
+                    <p className="title">{movie[0][0]}</p>
+                  </div>
+                  <div className="bottomPublic">
+                    <div className="bottomLeftFeed">
+                      <img className="publicImage"src={`http://image.tmdb.org/t/p/w500${movie[0][4]}`} alt ={movie[0][0]}/>
+                    </div>
+                    <div className="bottomRightFeed">
+                      <p className="releaseDate">{movie[0][5]}</p>
+                      <p className="popularity">{movie[0][6]}</p>
+                      <p className="description">{movie[0][3]}</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="savedForeignMovie">
-                  <img className="publicImage" src={`http://image.tmdb.org/t/p/w500${movie[1][4]}`} alt={movie[1][0]} />
+                  <h3>Then check out</h3>
                   <p className="title">{movie[1][0]}</p>
-                  <p className="description">{movie[1][3]}</p>
+                  <img className="publicImage" src={`http://image.tmdb.org/t/p/w500${movie[1][4]}`} alt={movie[1][0]} />
+                  <p className="releaseDate">{movie[1][5]}</p>
                   <p className="Language">{movie[1][2]}</p>
+                  <p className="popularity">{movie[1][6]}</p>
+                  <p className="description">{movie[1][3]}</p>
+                  
                 </div>
               </li>
             );

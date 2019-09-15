@@ -1,0 +1,36 @@
+.posterGallery{
+    display: flex;
+    columns: 10 200px;
+    flex-wrap: wrap;
+
+
+    .posterContainer{
+        width: 20%;
+        padding: 0 30px;
+
+    }
+
+    .poster1,
+    .poster3,
+    .poster6,
+    .poster8,
+    .poster11,
+    .poster13,
+    .poster16,
+    .poster18 {
+        padding-top: 40px;
+    }
+
+}
+
+.searchAutofill input {
+    background: none;
+    border: none;
+    font-size: 5rem;
+    color:$puke;
+    font-weight: bold;
+
+    p{
+        color: $teal;
+    }
+}

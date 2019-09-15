@@ -1,8 +1,22 @@
-
-
 $teal: #235856;
-$darkTeal: darken(#235856, 30%);
 $mermaid: #bffff0;
 $puke: #e5df00;
-$headingFont: 'Josefin Sans', sans-serif;
-$bodyFont: 'Lato', sans-serif;
+$background: #081519;
+$modalBackground: darken($teal, 12%);
+
+@mixin logoFont ($fontsize) {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: $fontsize;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+@mixin bodyFont ($texttransform: lowercase, $fontsize: 1.4rem, $fontweight: 400, $color: white, $letterspacing: normal) {
+  font-family: 'Lato', sans-serif;
+  text-transform: $texttransform;
+  font-size: $fontsize;
+  font-weight: $fontweight;
+  color: $color;
+  letter-spacing: $letterspacing;
+}

@@ -13,8 +13,10 @@ class App extends Component  {
       <Router>
         <div className="App">
           <nav>
-          <Link to="/"><h3>Film Buff</h3></Link>
-          <Link to="/Feed">Feed</Link>
+            <div className="wrapper">
+              <Link to="/"><h3>Film Buff</h3></Link>
+              <Link to="/Feed"><a>Recommendations</a></Link>
+            </div>
           </nav>
           <Switch>
             <Route exact path="/" component={Header} />

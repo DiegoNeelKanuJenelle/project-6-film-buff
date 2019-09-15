@@ -10,7 +10,8 @@ const Header = () => {
   return (
     <header className="Header">
       <h1>Film Buff</h1>
-      <Link to="/English"> Catalogue</Link>
+      <p>Foreign movie recommendations</p>
+      <Link to="/English">Find a movie</Link>
     </header>
   );
 };

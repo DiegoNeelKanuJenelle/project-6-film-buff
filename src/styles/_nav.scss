@@ -1,0 +1,22 @@
+nav {
+  border-bottom: 1px solid #fff;
+  padding: 1rem 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h3 {
+    @include logoFont(3.5rem);
+  }
+
+  a {
+    @include bodyFont ($texttransform: uppercase, $fontsize: 1.8rem)
+  }
+}

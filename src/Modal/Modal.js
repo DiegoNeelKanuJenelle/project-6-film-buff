@@ -16,7 +16,7 @@ const modal = props => {
       >
         <div className='modalTopBar'>
           <button className="btn-cancel" onClick={props.close}>
-            CLOSE
+            X
           </button>
         </div>
         <div className="modal-header">

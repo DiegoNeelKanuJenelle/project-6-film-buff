@@ -1,0 +1,16 @@
+.publicFeed {
+    background: $background;
+
+    .title {
+        @include bodyFont($texttransform: capitalize, $fontsize: 3.5rem, $fontweight: 900, $color: $puke);
+    }
+}
+
+.listItem{
+    display: flex;
+    flex-wrap: wrap;
+    .savedEnglishMovie, .savedForeignMovie{
+        width:46%;
+        margin:2%;
+    }
+}

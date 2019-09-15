@@ -78,29 +78,31 @@ class EnglishSearchComponent extends Component {
       <div>
         <div className="searchAutofill">
           <form onSubmit={this.handleAutofill}>
+            <p>Find me an english movie</p>
             <input
               type="text"
+              placeholder="Enter your movie"
               name="userInput"
               value={this.state.userInput}
               onChange={this.handleChange}
               // onKeyUp={this.handleAutofill}
             />
-            <button>Search movies</button>
+            {/* <button>Search movies</button> */}
           </form>
         </div>
-        <ul>
-          {this.state.englishMovies.map(movie => {
+        <ul className="posterGallery">
+          {this.state.englishMovies.map((movie, index)=> {
             return (
-              <div key={movie[4]}>
-              <img
-                  style={{ position: "relative", zIndex: 10 }}
-                  onClick={() => {
-                    this.openModalHandler(movie);
-                  }}
-                  src={movie[1] !== null ? `http://image.tmdb.org/t/p/w500${movie[1]}` : `https://images.ctfassets.net/kjeq3om28nk5/29EdaLLFGICqU4OwMOUumE/cf9e89ee7dac5795db6730681157d350/2019-Winter_Bootcamp-Asaf-Gerchak-1.jpg?w=800&q=50`}
+              <div className={`posterContainer poster${index} `} key={movie[4]}>
+                <img
+                    style={{ position: "relative", zIndex: 10 }}
+                    onClick={() => {
+                      this.openModalHandler(movie);
+                    }}
+                    src={movie[1] !== null ? `http://image.tmdb.org/t/p/w500${movie[1]}` : `https://images.ctfassets.net/kjeq3om28nk5/29EdaLLFGICqU4OwMOUumE/cf9e89ee7dac5795db6730681157d350/2019-Winter_Bootcamp-Asaf-Gerchak-1.jpg?w=800&q=50`}
 
-                  alt={movie[1] !== null ? `Movie poster for ${movie[0]}` : 'TROLOLOLOL'}
-                  />
+                    alt={movie[1] !== null ? `Movie poster for ${movie[0]}` : 'TROLOLOLOL'}
+                    />
               </div>
             );
           })}

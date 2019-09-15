@@ -16,25 +16,22 @@
     justify-content: space-between;
 }
 .modalTopBar{
-    border-radius: 10px 10px 0 0;
     background: gray;
     display: flex;
     justify-content: flex-end;
 
     .btn-cancel {
-        border-radius: 0 10px 0 0;
         background-color: #b71c1c;
     }
 }
 
 .modal-wrapper {
-    border-radius: 10px;
     width: 65%;
-    background: white;
     border: 1px solid #d0cccc;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
     margin: 0 auto;
     transition: all 0.8s;
+    background: $modalBackground;
 }
 
 .modal-header {
