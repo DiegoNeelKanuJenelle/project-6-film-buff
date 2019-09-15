@@ -114,15 +114,27 @@ class EnglishSearchComponent extends Component {
               close={this.closeModalHandler}
               englishMovie={this.state.selectedEnglishMovie}
             >
-              <p>{this.state.selectedEnglishMovie[3]}</p>
-              <p>Released:{this.state.selectedEnglishMovie[6]}</p>
-              <p>Popularity{this.state.selectedEnglishMovie[7]}</p>
-              <img
-                // style={{ height: "400px" }}
-                src={`http://image.tmdb.org/t/p/w500${
-                  this.state.selectedEnglishMovie[1]
-                }`}
-              />
+              <div className="fullModal">
+                <div className="top">
+                  <p>{this.state.selectedEnglishMovie[0]}</p>
+                  <p>{this.state.selectedEnglishMovie[6]}</p>
+                </div>
+                <div className="modalPosterImage">
+                  <img
+                    // style={{ height: "400px" }}
+                    src={`http://image.tmdb.org/t/p/w500${
+                      this.state.selectedEnglishMovie[1]
+                    }`}
+                  />
+                </div>
+                <div className="belowImage">
+                  <p>{this.state.selectedEnglishMovie[3]}</p>
+                </div>
+                <div className="footer">
+                  <p>Popularity{this.state.selectedEnglishMovie[7]}</p>
+                </div>
+
+              </div>
             </Modal>
           </div>
         ) : null}

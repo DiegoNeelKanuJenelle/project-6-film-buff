@@ -20,12 +20,14 @@ const modal = props => {
           </button>
         </div>
         <div className="modal-header">
-          <h3>{props.englishMovie[0]}</h3>
+          {/* <h3>{props.englishMovie[0]}</h3> */}
           <span className="close-modal-btn" onClick={props.close}></span>
         </div>
 
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
+
+          {/* {props.children} */}
           
           <Link
             to={{

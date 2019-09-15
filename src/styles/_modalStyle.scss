@@ -11,7 +11,10 @@
     justify-content: center;
     align-items: center;
 }
-
+.top{
+    display: flex;
+    justify-content: space-between;
+}
 .modalTopBar{
     border-radius: 10px 10px 0 0;
     background: gray;
@@ -21,7 +24,6 @@
     .btn-cancel {
         border-radius: 0 10px 0 0;
         background-color: #b71c1c;
-
     }
 }
 
@@ -47,14 +49,22 @@
     padding: 0;
 }
 .modal-body {
-  /* height: 100px; */
     padding: 10px 15px;
     text-align: center;
-    
-    img{
-        height: 600px;
+
+    .modalPosterImage{
+        height: 500px;
+        display: flex;
+        justify-content: center;
+
+        img{
+            display: block;
+            height: 100%;
+        }
     }
 }
+
+
 
 .modal-footer {
     /* background: #263238; */

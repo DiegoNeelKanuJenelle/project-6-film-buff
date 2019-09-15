@@ -49,7 +49,7 @@ class ForeignRelatedComponent extends Component {
           foreignArray: newarray
         },
         () => {
-          if (this.state.foreignArray.length < 11) {
+          if (this.state.foreignArray.length < 20) {
             num++;
             console.log(`the functio has been called ${num} times`);
             this.makeApiCall(num, narrowedGenreString);
@@ -57,6 +57,11 @@ class ForeignRelatedComponent extends Component {
           }
         }
       );
+      const shufflearray = [...this.state.foreignArray];
+      this.shuffle(shufflearray);
+      this.setState({
+        foreignArray:shufflearray
+      })
     });
   };
 
@@ -93,6 +98,24 @@ class ForeignRelatedComponent extends Component {
       ]
     ]);
   };
+  shuffle = (array) => {
+    let counter = array.length;
+    let temp;
+    let index;
+
+    // While there are elements in the array
+    while (counter > 0) {
+    // Pick a random index
+        index = Math.floor(Math.random() * counter);
+    // Decrease ctr by 1
+        counter--;
+    // And swap the last element with it
+        temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+    return array;
+  }
 
   render() {
     return (
@@ -117,13 +140,24 @@ class ForeignRelatedComponent extends Component {
               modalarray={this.state.selectedForeignMovie}
               saveToDb={this.saveToDb}
             >
-              <p>{this.state.selectedForeignMovie.overview}</p>
-              <p>Released:{this.state.selectedForeignMovie.release_date}</p>
-              <p>Popularity{this.state.selectedForeignMovie.popularity}</p>
-              <img
-                style={{ height: "400px" }}
-                src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
-              />
+              <div className="top">
+                <p>Title{this.state.selectedForeignMovie.title}</p>
+                <p>Released:{this.state.selectedForeignMovie.release_date}</p>  
+              </div>
+              <div className="modalPosterImage">
+                <img
+                  // style={{ height: "400px" }}
+                  src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
+                />
+              </div>
+              <div className="belowImage">
+                <p>{this.state.selectedForeignMovie.overview}</p>
+              </div>
+              <div className="footer">
+                <p>Popularity{this.state.selectedForeignMovie.popularity}</p>
+              </div>
+
+                
             </Modal>
           </div>
         ) : null}
