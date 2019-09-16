@@ -14,21 +14,19 @@ const modal = props => {
           opacity: props.show ? "1" : "0"
         }}
       >
-        <div className='modalTopBar'>
+        <div className="modalTopBar">
           <button className="btn-cancel" onClick={props.close}>
             X
           </button>
         </div>
         <div className="modal-header">
-          {/* <h3>{props.englishMovie[0]}</h3> */}
           <span className="close-modal-btn" onClick={props.close}></span>
         </div>
 
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
-
           {/* {props.children} */}
-          
+
           <Link
             to={{
               pathname: "/Foreign",

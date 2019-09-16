@@ -1,16 +1,22 @@
 .publicFeed {
-    background: $background;
+  background: $background;
 
-    .title {
-        @include bodyFont($texttransform: capitalize, $fontsize: 3.5rem, $fontweight: 900, $color: $puke);
-    }
+  .title {
+    @include bodyFont(
+      $transform: capitalize,
+      $size: 3.5rem,
+      $weight: 900,
+      $color: $puke
+    );
+  }
 }
 
-.listItem{
-    display: flex;
-    flex-wrap: wrap;
-    .savedEnglishMovie, .savedForeignMovie{
-        width:46%;
-        margin:2%;
-    }
+.listItem {
+  display: flex;
+  flex-wrap: wrap;
+  .savedEnglishMovie,
+  .savedForeignMovie {
+    width: 46%;
+    margin: 2%;
+  }
 }

@@ -49,7 +49,7 @@ class ForeignRelatedComponent extends Component {
           foreignArray: newarray
         },
         () => {
-          if (this.state.foreignArray.length < 20) {
+          if (this.state.foreignArray.length < 18) {
             num++;
             console.log(`the functio has been called ${num} times`);
             this.makeApiCall(num, narrowedGenreString);
@@ -60,8 +60,8 @@ class ForeignRelatedComponent extends Component {
       const shufflearray = [...this.state.foreignArray];
       this.shuffle(shufflearray);
       this.setState({
-        foreignArray:shufflearray
-      })
+        foreignArray: shufflearray
+      });
     });
   };
 
@@ -102,39 +102,47 @@ class ForeignRelatedComponent extends Component {
       ]
     ]);
   };
-  shuffle = (array) => {
+  shuffle = array => {
     let counter = array.length;
     let temp;
     let index;
 
     // While there are elements in the array
     while (counter > 0) {
-    // Pick a random index
-        index = Math.floor(Math.random() * counter);
-    // Decrease ctr by 1
-        counter--;
-    // And swap the last element with it
-        temp = array[counter];
-        array[counter] = array[index];
-        array[index] = temp;
+      // Pick a random index
+      index = Math.floor(Math.random() * counter);
+      // Decrease ctr by 1
+      counter--;
+      // And swap the last element with it
+      temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
     }
     return array;
-  }
+  };
 
   render() {
     return (
-      <div>
-        {this.state.foreignArray.map(movie => {
-          return (
-            <img
-              style={{ position: "relative", zIndex: 10 }}
-              onClick={() => {
-                this.openModalHandler(movie);
-              }}
-              src={`http://image.tmdb.org/t/p/w500${movie["poster_path"]}`}
-            />
-          );
-        })}
+      <div className="foreignContainer">
+        <div className="foreignTitle">
+          <p>Foreign movies similar to </p>
+          <h3>{this.props.location.state.englishMovie[0]}</h3>
+        </div>
+        <ul className="posterGallery">
+          {this.state.foreignArray.map((movie, index) => {
+            return (
+              <li className={`posterContainer poster${index} `} key={movie[4]}>
+                <img
+                  style={{ position: "relative", zIndex: 10 }}
+                  onClick={() => {
+                    this.openModalHandler(movie);
+                  }}
+                  src={`http://image.tmdb.org/t/p/w500${movie["poster_path"]}`}
+                />
+              </li>
+            );
+          })}
+        </ul>
         {this.state.isShowing ? (
           <div onClick={this.closeModalHandler} className="back-drop">
             <Modal
@@ -146,7 +154,7 @@ class ForeignRelatedComponent extends Component {
             >
               <div className="top">
                 <p>Title{this.state.selectedForeignMovie.title}</p>
-                <p>Released:{this.state.selectedForeignMovie.release_date}</p>  
+                <p>Released:{this.state.selectedForeignMovie.release_date}</p>
               </div>
               <div className="modalPosterImage">
                 <img
@@ -160,8 +168,6 @@ class ForeignRelatedComponent extends Component {
               <div className="footer">
                 <p>Popularity{this.state.selectedForeignMovie.popularity}</p>
               </div>
-
-                
             </Modal>
           </div>
         ) : null}
