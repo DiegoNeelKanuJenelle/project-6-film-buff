@@ -1,0 +1,16 @@
+.foreignTitle {
+  margin: 30px;
+  h3 {
+    font-size: 6rem;
+    color: $puke;
+    text-transform: capitalize;
+    margin: 1% 1% 1% 0;
+    font-weight: 900;
+  }
+  p {
+    color: $mermaid;
+    letter-spacing: 5px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}

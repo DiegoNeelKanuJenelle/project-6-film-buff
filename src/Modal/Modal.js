@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const modal = props => {
   return (
-
     <div
       className="modal-wrapper"
       style={{

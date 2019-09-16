@@ -3,7 +3,6 @@ $mermaid: #bffff0;
 $puke: #e5df00;
 $background: #081519;
 $modalBackground: darken($teal, 12%);
-
 @mixin logoFont($size, $color) {
   font-family: "Josefin Sans", sans-serif;
   font-size: $size;
@@ -12,7 +11,6 @@ $modalBackground: darken($teal, 12%);
   text-transform: uppercase;
   line-height: 1;
 }
-
 @mixin bodyFont(
   $transform: none,
   $size: 1.4rem,

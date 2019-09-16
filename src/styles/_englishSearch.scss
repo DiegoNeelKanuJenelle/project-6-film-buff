@@ -1,36 +1,61 @@
-.posterGallery{
-    display: flex;
-    columns: 10 200px;
-    flex-wrap: wrap;
+.posterGallery {
+  display: flex;
+  columns: 10 200px;
+  flex-wrap: wrap;
 
-
-    .posterContainer{
-        width: 20%;
-        padding: 0 30px;
-
+  .posterContainer {
+    width: 20%;
+    padding: 0 30px;
+    @include for-laptops {
+      width: 25%;
     }
-
-    .poster1,
-    .poster3,
-    .poster6,
-    .poster8,
-    .poster11,
-    .poster13,
-    .poster16,
-    .poster18 {
-        padding-top: 40px;
+    @include for-small-laptops {
+      width: 50%;
     }
+    @include for-tablet {
+      width: 50%;
+    }
+    @include for-mobile {
+      width: 100%;
+    }
+  }
 
+  .posterContainer:nth-child(2n) {
+    @include for-laptops {
+      padding-top: 40px;
+    }
+  }
+
+  .poster1,
+  .poster3,
+  .poster6,
+  .poster8,
+  .poster11,
+  .poster13,
+  .poster16,
+  .poster18,
+  .poster21,
+  .poster23 {
+    padding-top: 40px;
+    @include for-laptops {
+      padding-top: 0px;
+    }
+  }
 }
 
-.searchAutofill input {
+.searchAutofill {
+  margin: 30px;
+  input {
     background: none;
     border: none;
-    font-size: 5rem;
-    color:$puke;
-    font-weight: bold;
-
-    p{
-        color: white;
-    }
+    font-size: 6rem;
+    color: $puke;
+    font-weight: 900;
+  }
+  p {
+    color: $mermaid;
+    letter-spacing: 5px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
 }

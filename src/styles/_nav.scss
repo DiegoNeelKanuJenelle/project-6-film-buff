@@ -19,13 +19,11 @@ nav {
     justify-content: space-between;
     align-items: center;
   }
-
   h3 {
     @include logoFont(3.6rem, #fff);
     line-height: 1;
     margin-bottom: -5px;
   }
-
   .link {
     $color: $mermaid;
     font-size: 1.6rem;

@@ -91,19 +91,26 @@ class EnglishSearchComponent extends Component {
           </form>
         </div>
         <ul className="posterGallery">
-          {this.state.englishMovies.map((movie, index)=> {
+          {this.state.englishMovies.map((movie, index) => {
             return (
-              <div className={`posterContainer poster${index} `} key={movie[4]}>
+              <li className={`posterContainer poster${index} `} key={movie[4]}>
                 <img
-                    style={{ position: "relative", zIndex: 10 }}
-                    onClick={() => {
-                      this.openModalHandler(movie);
-                    }}
-                    src={movie[1] !== null ? `http://image.tmdb.org/t/p/w500${movie[1]}` : `https://images.ctfassets.net/kjeq3om28nk5/29EdaLLFGICqU4OwMOUumE/cf9e89ee7dac5795db6730681157d350/2019-Winter_Bootcamp-Asaf-Gerchak-1.jpg?w=800&q=50`}
-
-                    alt={movie[1] !== null ? `Movie poster for ${movie[0]}` : 'TROLOLOLOL'}
-                    />
-              </div>
+                  style={{ position: "relative", zIndex: 10 }}
+                  onClick={() => {
+                    this.openModalHandler(movie);
+                  }}
+                  src={
+                    movie[1] !== null
+                      ? `http://image.tmdb.org/t/p/w500${movie[1]}`
+                      : `https://images.ctfassets.net/kjeq3om28nk5/29EdaLLFGICqU4OwMOUumE/cf9e89ee7dac5795db6730681157d350/2019-Winter_Bootcamp-Asaf-Gerchak-1.jpg?w=800&q=50`
+                  }
+                  alt={
+                    movie[1] !== null
+                      ? `Movie poster for ${movie[0]}`
+                      : "TROLOLOLOL"
+                  }
+                />
+              </li>
             );
           })}
         </ul>
@@ -136,7 +143,6 @@ class EnglishSearchComponent extends Component {
                 </div>
                 <div className="footer">
                 </div>
-
               </div>
             </Modal>
           </div>
