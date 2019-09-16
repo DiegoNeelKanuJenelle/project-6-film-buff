@@ -75,21 +75,23 @@ class EnglishSearchComponent extends Component {
   };
   render() {
     return (
-      <div className="wrapper">
-        <div className="searchAutofill">
-          <form onSubmit={this.handleAutofill}>
-            <p>Find me an english movie</p>
-            <label className="sr-only">Enter your movie</label>
-            <input
-              type="text"
-              placeholder="Enter your movie"
-              name="userInput"
-              value={this.state.userInput}
-              onChange={this.handleChange}
-              // onKeyUp={this.handleAutofill}
-            />
-            {/* <button>Search movies</button> */}
-          </form>
+      <div>
+        <div className="wrapper">
+          <div className="searchAutofill">
+            <form onSubmit={this.handleAutofill}>
+              <p>Find me an english movie</p>
+              <label className="sr-only">Enter your movie</label>
+              <input
+                type="text"
+                placeholder="Enter your movie"
+                name="userInput"
+                value={this.state.userInput}
+                onChange={this.handleChange}
+                // onKeyUp={this.handleAutofill}
+              />
+              {/* <button>Search movies</button> */}
+            </form>
+          </div>
         </div>
         <ul className="posterGallery">
           {this.state.englishMovies.map((movie, index) => {

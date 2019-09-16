@@ -154,16 +154,20 @@ class ForeignRelatedComponent extends Component {
             >
               <div className="fullModal">
                 <div className="top">
-                  <h3 className = "englishMovieTitleModal">{this.state.selectedForeignMovie.title}</h3>
-                  <h3 classsName="englishMovieReleaseModal">{this.state.selectedForeignMovie.release_date}</h3>
+                  <h3 className="englishMovieTitleModal">
+                    {this.state.selectedForeignMovie.title}
+                  </h3>
+                  <h3 classsName="englishMovieReleaseModal">
+                    {this.state.selectedForeignMovie.release_date}
+                  </h3>
                 </div>
                 <div className="modalPosterArea">
-                	<div className="modalPosterImage">
-                	  <img
-                	    // style={{ height: "400px" }}
-                	    src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
-                	  />
-                	</div>
+                  <div className="modalPosterImage">
+                    <img
+                      // style={{ height: "400px" }}
+                      src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
+                    />
+                  </div>
                 </div>
                 <div className="modalMovieDescription">
                   <p>{this.state.selectedForeignMovie.overview}</p>
