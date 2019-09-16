@@ -1,10 +1,18 @@
 nav {
+  position: relative;
+  z-index: 100;
   border-bottom: 1px solid #fff;
-  padding: 1rem 0;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
+  background: rgba(8, 21, 25, 0.3);
+  padding: 2rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.35s;
+
+  &:hover {
+    background: rgba(8, 21, 25, 0.8);
+  }
 
   .wrapper {
     display: flex;
@@ -13,10 +21,15 @@ nav {
   }
 
   h3 {
-    @include logoFont(3.5rem);
+    @include logoFont(3.6rem, #fff);
+    line-height: 1;
+    margin-bottom: -5px;
   }
 
-  a {
-    @include bodyFont ($texttransform: uppercase, $fontsize: 1.8rem)
+  .link {
+    $color: $mermaid;
+    font-size: 1.6rem;
+    border: 1px solid $mermaid;
+    padding: 0.75rem 1.75rem;
   }
 }
