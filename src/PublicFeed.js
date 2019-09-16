@@ -28,7 +28,7 @@ class PublicFeed extends Component {
 
   render() {
     return (
-      <section className="publicFeed">
+      <section className="publicFeed wrapper">
         {/* <h2>Check out these matches ! <span>If you liked... then checkout..</span></h2>  */}
         <ul>
           {this.state.savedMovies.map((movie, index) => {
@@ -41,24 +41,54 @@ class PublicFeed extends Component {
                   </div>
                   <div className="bottomPublic">
                     <div className="bottomLeftFeed">
-                      <img className="publicImage"src={`http://image.tmdb.org/t/p/w500${movie[0][4]}`} alt ={movie[0][0]}/>
+                      <img
+                        className="publicImage"
+                        src={`http://image.tmdb.org/t/p/w500${movie[0][4]}`}
+                        alt={movie[0][0]}
+                      />
                     </div>
                     <div className="bottomRightFeed">
-                      <p className="releaseDate">{movie[0][5]}</p>
-                      <p className="popularity">{movie[0][6]}</p>
+                      <p className="releaseDate">
+                        Released
+                        <span className="releaseDateSpan">{movie[0][5]}</span>
+                      </p>
+                      <p className="popularityRating">
+                        Popularity rating{" "}
+                        <span className="popularitySpan">{movie[0][6]}</span>
+                      </p>
                       <p className="description">{movie[0][3]}</p>
                     </div>
                   </div>
                 </div>
                 <div className="savedForeignMovie">
-                  <h3>Then check out</h3>
-                  <p className="title">{movie[1][0]}</p>
-                  <img className="publicImage" src={`http://image.tmdb.org/t/p/w500${movie[1][4]}`} alt={movie[1][0]} />
-                  <p className="releaseDate">{movie[1][5]}</p>
-                  <p className="Language">{movie[1][2]}</p>
-                  <p className="popularity">{movie[1][6]}</p>
-                  <p className="description">{movie[1][3]}</p>
-                  
+                  <div className="topPublic">
+                    <h3>Then check out</h3>
+                    <p className="title">{movie[1][0]}</p>
+                  </div>
+                  <div className="bottomPublic">
+                    <div className="bottomLeftFeed">
+                      <img
+                        className="publicImage"
+                        src={`http://image.tmdb.org/t/p/w500${movie[1][4]}`}
+                        alt={movie[1][0]}
+                      />
+                    </div>
+                    <div className="bottomRightFeed">
+                      <p className="releaseDate">
+                        Released
+                        <span className="releaseDateSpan">{movie[1][5]}</span>
+                      </p>
+                      <p className="language">
+                        Language
+                        <span className="languageSpan ">{movie[1][2]}</span>
+                      </p>
+                      <p className="popularityRating">
+                        Popularity rating
+                        <span className="popularitySpan">{movie[1][6]}</span>
+                      </p>
+                      <p className="description">{movie[1][3]}</p>
+                    </div>
+                  </div>
                 </div>
               </li>
             );
