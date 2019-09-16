@@ -144,24 +144,25 @@ class ForeignRelatedComponent extends Component {
               modalarray={this.state.selectedForeignMovie}
               saveToDb={this.saveToDb}
             >
-              <div className="top">
-                <p>Title{this.state.selectedForeignMovie.title}</p>
-                <p>Released:{this.state.selectedForeignMovie.release_date}</p>  
+              <div class="fullModal">
+                <div className="top">
+                  <p>Title{this.state.selectedForeignMovie.title}</p>
+                  <p>Released:{this.state.selectedForeignMovie.release_date}</p>  
+                </div>
+                <div className="modalPosterImage">
+                  <img
+                    // style={{ height: "400px" }}
+                    src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
+                  />
+                </div>
+                <div className="belowImage">
+                  <p>{this.state.selectedForeignMovie.overview}</p>
+                </div>
+                <div className="footer">
+                  <p>Popularity{this.state.selectedForeignMovie.popularity}</p>
+                </div>
+  
               </div>
-              <div className="modalPosterImage">
-                <img
-                  // style={{ height: "400px" }}
-                  src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
-                />
-              </div>
-              <div className="belowImage">
-                <p>{this.state.selectedForeignMovie.overview}</p>
-              </div>
-              <div className="footer">
-                <p>Popularity{this.state.selectedForeignMovie.popularity}</p>
-              </div>
-
-                
             </Modal>
           </div>
         ) : null}
