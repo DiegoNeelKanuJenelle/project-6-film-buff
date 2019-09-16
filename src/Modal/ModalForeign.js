@@ -13,19 +13,15 @@ const modal = props => {
           opacity: props.show ? "1" : "0"
         }}
       >
-        {/* <div className='modalTopBar'>
-          <button className="btn-cancel" onClick={props.close}>
-            CLOSE
-          </button>
-        </div> */}
         
-        <div className="modal-header">
-          <h3>{props.modalarray.title}</h3>
-          <span className="close-modal-btn" onClick={props.close}></span>
-        </div>
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
-          
+
+          <div class="modalPopularityRating">
+            <h3>{props.modalarray.popularity.toFixed(0)}%</h3>
+            <h4>Popularity rating</h4>
+          </div>
+
           <button className="btn-continue" onClick={props.saveToDb}>
             Save Foreign Movie
           </button>

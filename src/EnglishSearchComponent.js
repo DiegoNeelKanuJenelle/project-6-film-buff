@@ -75,7 +75,7 @@ class EnglishSearchComponent extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <div className="searchAutofill">
           <form onSubmit={this.handleAutofill}>
             <p>Find me an english movie</p>
@@ -125,8 +125,12 @@ class EnglishSearchComponent extends Component {
             >
               <div className="fullModal">
                 <div className="top">
-                  <h3 className = "englishMovieTitleModal">{this.state.selectedEnglishMovie[0]}</h3>
-                  <h3 className="englishMovieReleaseModal">{this.state.selectedEnglishMovie[6].replace(/-.*/g, "")}</h3>
+                  <h3 className="englishMovieTitleModal">
+                    {this.state.selectedEnglishMovie[0]}
+                  </h3>
+                  <h3 className="englishMovieReleaseModal">
+                    {this.state.selectedEnglishMovie[6].replace(/-.*/g, "")}
+                  </h3>
                 </div>
                 <div class="modalPosterArea">
                   <div className="modalPosterImage">
@@ -140,8 +144,6 @@ class EnglishSearchComponent extends Component {
                 </div>
                 <div className="modalMovieDescription">
                   <p>{this.state.selectedEnglishMovie[3]}</p>
-                </div>
-                <div className="footer">
                 </div>
               </div>
             </Modal>

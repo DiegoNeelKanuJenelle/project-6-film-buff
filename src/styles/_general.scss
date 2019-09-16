@@ -7,7 +7,7 @@ body {
 }
 
 .wrapper {
-  width: 85%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -30,7 +30,7 @@ a {
     background: $teal;
     color: #fff;
   }
-  }
+}
 h3 {
   text-align: center;
   @include bodyFont(
@@ -43,7 +43,15 @@ h3 {
 .title {
   text-align: center;
   margin: 1.5rem;
-  @include bodyFont($size: 3.2rem);
+
+  @include bodyFont(
+    $size: 3.2rem);
+  @include for-laptops{
+    margin: 0.6rem;
+  }
+    @include for-small-laptops{
+      font-size: 1.8rem;
+    }
 }
 
 .releaseDate,
@@ -70,4 +78,3 @@ h3 {
     $spacing: 3px
   );
 }
-

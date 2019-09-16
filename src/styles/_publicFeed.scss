@@ -1,31 +1,46 @@
 .publicFeed {
   background: $background;
+  margin-top: 85px;
 
-  .title {
-    @include bodyFont(
-      $transform: capitalize,
-      $size: 3.5rem,
-      $weight: 900,
-      $color: $puke
-    );
-  }
+}
+.title {
+  @include bodyFont(
+    $transform: capitalize,
+    $size: 3.5rem,
+    $weight: 900,
+    $color: $puke
+  );
+
 }
 
 .listItem {
   display: flex;
   flex-wrap: wrap;
   border-bottom: 2px solid $mermaid;
+  @include for-mobile{
+    display:block;
+  }
+ 
   .savedEnglishMovie,
   .savedForeignMovie {
     width: 46%;
-    margin: 2%;
+    margin: 2% 0;
     .topPublic {
       margin: 2rem;
     }
     .bottomPublic {
       display: flex;
       margin: 2rem;
+      @include for-small-laptops{
+        // display:block;
+        flex-direction: column;
+        align-items: center;
+      }
     }
+  }
+
+  .savedForeignMovie {
+    margin-left: auto;
   }
 }
 span {
@@ -36,11 +51,17 @@ span {
 .bottomPublic {
   .bottomLeftFeed {
     width: 49%;
-    margin-right: 1%;
+    margin-right: 1%;     
+    @include for-small-laptops{
+      width: 82%;
+    }
   }
   .bottomRightFeed {
     width: 49%;
-    margin-left: 1%;
+    @include for-small-laptops{
+      width: 82%;
+    }
+    margin-left: 1%;    
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

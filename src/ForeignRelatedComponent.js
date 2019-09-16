@@ -125,7 +125,7 @@ class ForeignRelatedComponent extends Component {
     return (
       <div className="foreignContainer">
         <div className="foreignTitle">
-          <p>Foreign movies similar to </p>
+          <p>Foreign movies similar to</p>
           <h3>{this.props.location.state.englishMovie[0]}</h3>
         </div>
         <ul className="posterGallery">
@@ -152,21 +152,22 @@ class ForeignRelatedComponent extends Component {
               modalarray={this.state.selectedForeignMovie}
               saveToDb={this.saveToDb}
             >
-              <div className="top">
-                <p>Title{this.state.selectedForeignMovie.title}</p>
-                <p>Released:{this.state.selectedForeignMovie.release_date}</p>
-              </div>
-              <div className="modalPosterImage">
-                <img
-                  // style={{ height: "400px" }}
-                  src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
-                />
-              </div>
-              <div className="belowImage">
-                <p>{this.state.selectedForeignMovie.overview}</p>
-              </div>
-              <div className="footer">
-                <p>Popularity{this.state.selectedForeignMovie.popularity}</p>
+              <div className="fullModal">
+                <div className="top">
+                  <h3 className = "englishMovieTitleModal">{this.state.selectedForeignMovie.title}</h3>
+                  <p>{this.state.selectedForeignMovie.release_date}</p>
+                </div>
+                <div className="modalPosterArea">
+                	<div className="modalPosterImage">
+                	  <img
+                	    // style={{ height: "400px" }}
+                	    src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
+                	  />
+                	</div>
+                </div>
+                <div className="modalMovieDescription">
+                  <p>{this.state.selectedForeignMovie.overview}</p>
+                </div>
               </div>
             </Modal>
           </div>
