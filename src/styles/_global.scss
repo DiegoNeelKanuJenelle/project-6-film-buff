@@ -11,6 +11,7 @@ $modalBackground: darken($teal, 12%);
   text-transform: uppercase;
   line-height: 1;
 }
+
 @mixin bodyFont(
   $transform: none,
   $size: 1.4rem,

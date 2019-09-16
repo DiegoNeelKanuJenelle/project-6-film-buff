@@ -1,5 +1,6 @@
 body {
   background: $background;
+  // line-height:1.9rem;
   @include bodyFont;
   max-width: 1800px;
   margin: 0 auto;
@@ -29,4 +30,42 @@ a {
     background: $teal;
     color: #fff;
   }
+h3 {
+  text-align: center;
+  @include bodyFont(
+    $transform: uppercase,
+    $size: 1.8rem,
+    $color: $mermaid,
+    $spacing: 5px
+  );
+}
+.title {
+  text-align: center;
+  margin: 1.5rem;
+  @include bodyFont($size: 3.2rem);
+}
+
+.releaseDate,
+.popularityRating {
+  margin: 1rem;
+  @include bodyFont(
+    $size: 1.2rem,
+    $color: $mermaid,
+    $transform: uppercase,
+    $spacing: 3px
+  );
+}
+
+.description {
+  margin: 1rem;
+  @include bodyFont($size: 1.2rem);
+}
+.language {
+  margin: 1rem;
+  @include bodyFont(
+    $transform: Capitalize,
+    $size: 1.2rem,
+    $color: $mermaid,
+    $spacing: 3px
+  );
 }

@@ -29,5 +29,8 @@ nav {
     font-size: 1.6rem;
     border: 1px solid $mermaid;
     padding: 0.75rem 1.75rem;
+
+  a {
+    @include bodyFont($transform: uppercase, $size: 1.8rem);
   }
 }
