@@ -155,7 +155,7 @@ class ForeignRelatedComponent extends Component {
               <div className="fullModal">
                 <div className="top">
                   <h3 className = "englishMovieTitleModal">{this.state.selectedForeignMovie.title}</h3>
-                  <p>{this.state.selectedForeignMovie.release_date}</p>
+                  <h3 classsName="englishMovieReleaseModal">{this.state.selectedForeignMovie.release_date}</h3>
                 </div>
                 <div className="modalPosterArea">
                 	<div className="modalPosterImage">

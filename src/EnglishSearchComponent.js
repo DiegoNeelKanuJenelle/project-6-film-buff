@@ -79,6 +79,7 @@ class EnglishSearchComponent extends Component {
         <div className="searchAutofill">
           <form onSubmit={this.handleAutofill}>
             <p>Find me an english movie</p>
+            <label className="sr-only">Enter your movie</label>
             <input
               type="text"
               placeholder="Enter your movie"

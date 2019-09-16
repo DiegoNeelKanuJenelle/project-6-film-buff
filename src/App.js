@@ -16,8 +16,8 @@ class App extends Component {
               <Link to="/">
                 <h3>Film Buff</h3>
               </Link>
-              <Link to="/Feed">
-                <a className="link">Recommendations</a>
+              <Link to="/Feed" className="link">
+                User picks
               </Link>
             </div>
           </nav>

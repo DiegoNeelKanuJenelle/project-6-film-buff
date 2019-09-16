@@ -7,9 +7,13 @@ body {
 }
 
 .wrapper {
-  width: 90%;
+  width: 85%;
   max-width: 1200px;
   margin: 0 auto;
+
+  @include for-mobile {
+    width: 90%;
+  }
 }
 
 img {
@@ -23,7 +27,7 @@ a {
 }
 
 .link {
-  @include bodyFont($transform: uppercase, $spacing: 5px, $weight: 700);
+  @include bodyFont($transform: uppercase, $spacing: 5px, $weight: 900);
   transition: all 0.3s;
 
   &:hover {
@@ -31,31 +35,32 @@ a {
     color: #fff;
   }
 }
+
+// Modal and PublicFeed Styles
+
 h3 {
   text-align: center;
   @include bodyFont(
     $transform: uppercase,
-    $size: 1.8rem,
+    $size: 1.4rem,
     $color: $mermaid,
     $spacing: 5px
   );
 }
+
 .title {
   text-align: center;
   margin: 1.5rem;
+  @include bodyFont($size: 3.2rem);
 
-  @include bodyFont(
-    $size: 3.2rem);
-  @include for-laptops{
+  @include for-laptops {
     margin: 0.6rem;
   }
-    @include for-small-laptops{
-      font-size: 1.8rem;
-    }
 }
 
 .releaseDate,
-.popularityRating {
+.popularityRating,
+.language {
   margin: 1rem;
   @include bodyFont(
     $size: 1.2rem,
@@ -68,13 +73,4 @@ h3 {
 .description {
   margin: 1rem;
   @include bodyFont($size: 1.2rem);
-}
-.language {
-  margin: 1rem;
-  @include bodyFont(
-    $transform: Capitalize,
-    $size: 1.2rem,
-    $color: $mermaid,
-    $spacing: 3px
-  );
 }

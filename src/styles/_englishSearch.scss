@@ -49,7 +49,16 @@
     @include bodyFont($color: $puke, $weight: 900, $size: 6rem);
     background: none;
     border: none;
+    border-bottom: transparent 1px solid;
+    transition: all 1s;
   }
+  input:active {
+    border-bottom: $puke 1px solid;
+  }
+  input:focus {
+    border-bottom: $puke 1px solid;
+  }
+
   p {
     @include bodyFont($color: $mermaid, $spacing: 5px, $transform: uppercase);
   }

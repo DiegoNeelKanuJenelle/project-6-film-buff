@@ -52,6 +52,10 @@ class PublicFeed extends Component {
                         Released
                         <span className="releaseDateSpan">{movie[0][5]}</span>
                       </p>
+                      <p className="language">
+                        Language
+                        <span className="languageSpan ">{movie[0][2]}</span>
+                      </p>
                       <p className="popularityRating">
                         Popularity rating{" "}
                         <span className="popularitySpan">{movie[0][6]}</span>

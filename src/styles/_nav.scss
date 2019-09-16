@@ -21,9 +21,17 @@ nav {
   }
 
   h3 {
-    @include logoFont(3.6rem, #fff);
+    @include logoFont(3.2rem, #fff);
     line-height: 1;
     margin-bottom: -5px;
+
+    @include for-tablet {
+      font-size: 2.6rem;
+    }
+
+    @include for-mobile {
+      text-align: left;
+    }
   }
 
   .link {
@@ -31,9 +39,16 @@ nav {
     font-size: 1.6rem;
     border: 1px solid $mermaid;
     padding: 0.75rem 1.75rem;
+    text-align: center;
 
     a {
       @include bodyFont($transform: uppercase, $size: 1.8rem);
+    }
+
+    @include for-mobile {
+      min-width: 210px;
+      width: 40%;
+      padding: 0.75rem 0;
     }
   }
 }
