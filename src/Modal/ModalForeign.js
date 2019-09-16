@@ -13,11 +13,12 @@ const modal = props => {
           opacity: props.show ? "1" : "0"
         }}
       >
-        <div className='modalTopBar'>
+        {/* <div className='modalTopBar'>
           <button className="btn-cancel" onClick={props.close}>
             CLOSE
           </button>
-        </div>
+        </div> */}
+        
         <div className="modal-header">
           <h3>{props.modalarray.title}</h3>
           <span className="close-modal-btn" onClick={props.close}></span>
