@@ -4,19 +4,26 @@ $puke: #e5df00;
 $background: #081519;
 $modalBackground: darken($teal, 12%);
 
-@mixin logoFont ($fontsize) {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: $fontsize;
+@mixin logoFont($size, $color) {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: $size;
+  color: $color;
   font-weight: 700;
   text-transform: uppercase;
   line-height: 1;
 }
 
-@mixin bodyFont ($texttransform: lowercase, $fontsize: 1.4rem, $fontweight: 400, $color: white, $letterspacing: normal) {
-  font-family: 'Lato', sans-serif;
-  text-transform: $texttransform;
-  font-size: $fontsize;
-  font-weight: $fontweight;
+@mixin bodyFont(
+  $transform: none,
+  $size: 1.4rem,
+  $weight: 400,
+  $color: white,
+  $spacing: normal
+) {
+  font-family: "Lato", sans-serif;
+  text-transform: $transform;
+  font-size: $size;
+  font-weight: $weight;
   color: $color;
-  letter-spacing: $letterspacing;
+  letter-spacing: $spacing;
 }
