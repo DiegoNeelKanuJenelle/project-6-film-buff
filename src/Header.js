@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <div className="headerContainer">
       <header>
-        <h1>Film Buff</h1>
+        <div className="h1Container">
+          <h1>Film Buff</h1>
+        </div>
         <p>Foreign movie recommendations</p>
         <Link to="/English" className="link">
           Find a movie
