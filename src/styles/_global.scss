@@ -25,24 +25,3 @@ $modalBackground: darken($teal, 12%);
   color: $color;
   letter-spacing: $spacing;
 }
-@mixin for-laptops {
-  @media (max-width: 1200px) {
-    @content;
-  }
-}
-
-@mixin for-small-laptops {
-  @media (max-width: 1000px) {
-    @content;
-  }
-}
-@mixin for-tablet {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
-@mixin for-mobile {
-  @media (max-width: 500px) {
-    @content;
-  }
-}

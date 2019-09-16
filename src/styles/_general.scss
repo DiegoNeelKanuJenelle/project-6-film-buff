@@ -1,6 +1,8 @@
 body {
   background: $background;
   @include bodyFont;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
 .wrapper {
@@ -17,4 +19,14 @@ img {
 a {
   text-decoration: none;
   color: #fff;
+}
+
+.link {
+  @include bodyFont($transform: uppercase, $spacing: 5px, $weight: 700);
+  transition: all 0.3s;
+
+  &:hover {
+    background: $teal;
+    color: #fff;
+  }
 }

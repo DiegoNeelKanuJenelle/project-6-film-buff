@@ -1,0 +1,125 @@
+.headerContainer {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  margin-top: 71.9px;
+  height: calc(100% - 71.9px);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    @include logoFont(12rem, #000);
+    line-height: 1;
+    background: #fff;
+    padding: 3.5vw 4vw 1.5vw;
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    transition: all 0.3s;
+
+    @media (max-width: 1280px) {
+      font-size: calc(4rem + (120 - 40) * (100vw - 320px) / (1280 - 320));
+    }
+  }
+  .h1Container {
+    box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  p {
+    @include bodyFont(
+      $transform: uppercase,
+      $size: 2.1rem,
+      $spacing: 5px,
+      $color: #fff,
+      $weight: 700
+    );
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    margin: 3rem 0;
+    text-align: center;
+    line-height: 1.25;
+
+    @media (max-width: 480px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .link {
+    background: $puke;
+    color: $background;
+    font-size: 1.8rem;
+    padding: 1.5rem 2rem;
+    transition: all 0.3s;
+    box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background: $teal;
+      color: #fff;
+    }
+  }
+}
+
+// BACKGROUND GALLERY STYLES
+
+.backgroundGallery {
+  &.container {
+    position: relative;
+    z-index: -1;
+    width: 1800px;
+    margin: 0 auto;
+  }
+
+  .overlay {
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  &.column {
+    float: left;
+    position: relative;
+    width: calc((1800px / 7) - 26.2px);
+
+    &:nth-child(odd) {
+      animation: oddColumnMove 40s linear infinite;
+    }
+
+    &:nth-child(even) {
+      animation: evenColumnMove 40s linear infinite;
+    }
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}
+
+// 2771.47px is the height of one entire poster column, 346.8px is the height of one poster, 173.4px is half the height
+
+@keyframes oddColumnMove {
+  0% {
+    top: calc((-2771.47px - 173.4px) + (346.8px * 3));
+  }
+  100% {
+    top: calc(((-2771.47px - 173.4px) + (346.8px * 3)) + (346.8px * 4));
+  }
+}
+
+@keyframes evenColumnMove {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: calc(-346.8px * 4);
+  }
+}

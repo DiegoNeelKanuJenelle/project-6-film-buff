@@ -125,22 +125,23 @@ class EnglishSearchComponent extends Component {
             >
               <div className="fullModal">
                 <div className="top">
-                  <p>{this.state.selectedEnglishMovie[0]}</p>
-                  <p>{this.state.selectedEnglishMovie[6]}</p>
+                  <h3 className = "englishMovieTitleModal">{this.state.selectedEnglishMovie[0]}</h3>
+                  <h3 className="englishMovieReleaseModal">{this.state.selectedEnglishMovie[6].replace(/-.*/g, "")}</h3>
                 </div>
-                <div className="modalPosterImage">
-                  <img
-                    // style={{ height: "400px" }}
-                    src={`http://image.tmdb.org/t/p/w500${
-                      this.state.selectedEnglishMovie[1]
-                    }`}
-                  />
+                <div class="modalPosterArea">
+                  <div className="modalPosterImage">
+                    <img
+                      // style={{ height: "400px" }}
+                      src={`http://image.tmdb.org/t/p/w500${
+                        this.state.selectedEnglishMovie[1]
+                      }`}
+                    />
+                  </div>
                 </div>
-                <div className="belowImage">
+                <div className="modalMovieDescription">
                   <p>{this.state.selectedEnglishMovie[3]}</p>
                 </div>
                 <div className="footer">
-                  <p>Popularity{this.state.selectedEnglishMovie[7]}</p>
                 </div>
               </div>
             </Modal>
