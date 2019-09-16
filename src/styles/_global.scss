@@ -3,6 +3,7 @@ $mermaid: #bffff0;
 $puke: #e5df00;
 $background: #081519;
 $modalBackground: darken($teal, 12%);
+
 @mixin logoFont($size, $color) {
   font-family: "Josefin Sans", sans-serif;
   font-size: $size;
@@ -25,4 +26,25 @@ $modalBackground: darken($teal, 12%);
   font-weight: $weight;
   color: $color;
   letter-spacing: $spacing;
+}
+
+@mixin for-laptops {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-small-laptops {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+@mixin for-tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin for-mobile {
+  @media (max-width: 500px) {
+    @content;
+  }
 }

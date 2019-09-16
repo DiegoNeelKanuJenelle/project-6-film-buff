@@ -1,9 +1,9 @@
 body {
-  background: $background;
-  // line-height:1.9rem;
-  @include bodyFont;
   max-width: 1800px;
   margin: 0 auto;
+  background: $background;
+  @include bodyFont;
+  line-height: 1.2;
 }
 
 .wrapper {
@@ -29,6 +29,7 @@ a {
   &:hover {
     background: $teal;
     color: #fff;
+  }
   }
 h3 {
   text-align: center;
@@ -69,3 +70,4 @@ h3 {
     $spacing: 3px
   );
 }
+
