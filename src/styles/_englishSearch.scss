@@ -1,67 +1,9 @@
-.posterGallery {
-  display: flex;
-  columns: 10 200px;
-  flex-wrap: wrap;
-
-  .posterContainer {
-    width: 20%;
-    padding: 0 30px;
-    @include for-laptops {
-      width: 25%;
-    }
-    @include for-small-laptops {
-      width: 50%;
-    }
-    @include for-tablet {
-      width: 50%;
-    }
-    @include for-mobile {
-      width: 100%;
-    }
-
-    img {
-      cursor: pointer;
-      transform: scale(1);
-      transition: all 0.4s;
-      &:hover {
-        transform: scale(1.07);
-      }
-    }
-  }
-
-  .posterContainer:nth-child(2n) {
-    @include for-laptops {
-      padding-top: 40px;
-    }
-  }
-
-  .poster1,
-  .poster3,
-  .poster6,
-  .poster8,
-  .poster11,
-  .poster13,
-  .poster16,
-  .poster18,
-  .poster21,
-  .poster23 {
-    padding-top: 40px;
-    @include for-laptops {
-      padding-top: 0px;
-    }
-  }
-
-  .posterContainer{
-    @include for-mobile{
-      padding-top: 40px;
-    }
-  }
+.englishComponent {
+  margin-top: 110px;
 }
 
-
-
 .searchAutofill {
-  margin: 110px 0 30px;
+  margin: 0 0 30px;
 
   input {
     @include bodyFont(
@@ -103,6 +45,69 @@
       transform-origin: 25% center;
       margin-top: 30px;
       color: #fff;
+    }
+  }
+}
+
+.posterGallery {
+  display: flex;
+  columns: 10 200px;
+  flex-wrap: wrap;
+
+  .posterContainer {
+    width: 20%;
+    padding: 0 30px;
+    @include for-laptops {
+      width: 25%;
+    }
+    @include for-small-laptops {
+      width: 50%;
+    }
+    @include for-tablet {
+      width: 50%;
+    }
+    @include for-mobile {
+      width: 100%;
+    }
+    &.foreign {
+      animation-delay: 0.5s;
+    }
+
+    img {
+      cursor: pointer;
+      transform: scale(1);
+      transition: all 0.4s;
+      &:hover {
+        transform: scale(1.07);
+      }
+    }
+  }
+
+  .posterContainer:nth-child(2n) {
+    @include for-laptops {
+      padding-top: 40px;
+    }
+  }
+
+  .poster1,
+  .poster3,
+  .poster6,
+  .poster8,
+  .poster11,
+  .poster13,
+  .poster16,
+  .poster18,
+  .poster21,
+  .poster23 {
+    padding-top: 40px;
+    @include for-laptops {
+      padding-top: 0px;
+    }
+  }
+
+  .posterContainer {
+    @include for-mobile {
+      padding-top: 40px;
     }
   }
 }

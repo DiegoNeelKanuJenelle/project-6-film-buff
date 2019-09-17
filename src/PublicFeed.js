@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import firebase from "./firebase";
 
 class PublicFeed extends Component {
@@ -28,8 +27,7 @@ class PublicFeed extends Component {
 
   render() {
     return (
-      <section className="publicFeed wrapper">
-        {/* <h2>Check out these matches ! <span>If you liked... then checkout..</span></h2>  */}
+      <section className="publicFeed wrapper animated fadeInLeft">
         <ul>
           {this.state.savedMovies.map((movie, index) => {
             return (

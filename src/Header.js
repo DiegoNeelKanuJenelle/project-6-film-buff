@@ -6,7 +6,7 @@ import "./App.css";
 
 const Header = () => {
   return (
-    <div className="headerContainer">
+    <div className="headerContainer animated zoomIn">
       <header>
         <div className="h1Container">
           <h1 className="animated jackInTheBox delay-1s">Film Buff</h1>

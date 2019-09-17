@@ -123,15 +123,18 @@ class ForeignRelatedComponent extends Component {
 
   render() {
     return (
-      <div className="foreignContainer">
-        <div className="foreignTitle">
+      <section className="foreignComponent">
+        <div className="foreignTitle animated fadeInDown">
           <p>Foreign movies similar to</p>
           <h3>{this.props.location.state.englishMovie[0]}</h3>
         </div>
         <ul className="posterGallery">
           {this.state.arrayshuffle.map((movie, index) => {
             return (
-              <li key={movie[4]} className={`posterContainer poster${index} `}>
+              <li
+                key={movie[4]}
+                className={`posterContainer poster${index} foreign animated fadeInUp`}
+              >
                 <img
                   style={{ position: "relative", zIndex: 10 }}
                   onClick={() => {
@@ -179,7 +182,7 @@ class ForeignRelatedComponent extends Component {
             </Modal>
           </div>
         ) : null}
-      </div>
+      </section>
     );
   }
 }

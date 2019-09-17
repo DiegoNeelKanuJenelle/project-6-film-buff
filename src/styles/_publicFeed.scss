@@ -1,6 +1,7 @@
 .publicFeed {
   background: $background;
   margin-top: 85px;
+  animation-delay: 0.5s;
 }
 .title {
   @include bodyFont(
@@ -20,7 +21,7 @@
   border-bottom: 2px solid $mermaid;
   @include for-mobile {
     flex-direction: column;
-    align-items:center;
+    align-items: center;
   }
 
   .savedEnglishMovie,
@@ -42,13 +43,13 @@
       }
     }
     @include for-mobile {
-      width:82%;
+      width: 82%;
     }
   }
 
   .savedForeignMovie {
     margin-left: auto;
-    @include for-mobile{
+    @include for-mobile {
       margin-left: 0;
     }
   }
@@ -66,7 +67,6 @@ span {
       width: 82%;
     }
     // @include for-mobile {
-
   }
   .bottomRightFeed {
     width: 49%;
@@ -76,7 +76,7 @@ span {
     margin-left: 1%;
     @include for-small-laptops {
       width: 82%;
-      margin-top:1rem;
+      margin-top: 1rem;
     }
   }
 }

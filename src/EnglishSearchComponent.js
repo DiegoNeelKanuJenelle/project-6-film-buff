@@ -79,9 +79,9 @@ class EnglishSearchComponent extends Component {
   };
   render() {
     return (
-      <div className="englishSearchComponent">
+      <section className="englishComponent">
         <div className="wrapper">
-          <div className="searchAutofill">
+          <div className="searchAutofill animated fadeInDown">
             <form onSubmit={this.handleAutofill}>
               <p>Find me an english movie</p>
               <label className="sr-only">Enter your movie</label>
@@ -166,7 +166,7 @@ class EnglishSearchComponent extends Component {
             </Modal>
           </div>
         ) : null}
-      </div>
+      </section>
     );
   }
 }
