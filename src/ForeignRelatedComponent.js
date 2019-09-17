@@ -157,8 +157,13 @@ class ForeignRelatedComponent extends Component {
                   <h3 className="englishMovieTitleModal">
                     {this.state.selectedForeignMovie.title}
                   </h3>
-                  <h3 classsName="englishMovieReleaseModal">
-                    {this.state.selectedForeignMovie.release_date}
+
+                  <h3 className="englishMovieReleaseModal">
+                    {this.state.selectedForeignMovie.release_date.replace(
+                      /-.*/g,
+                      ""
+                    )}
+
                   </h3>
                 </div>
                 <div className="modalPosterArea">

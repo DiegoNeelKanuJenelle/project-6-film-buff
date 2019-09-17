@@ -50,7 +50,15 @@
       padding-top: 0px;
     }
   }
+
+  .posterContainer{
+    @include for-mobile{
+      padding-top: 40px;
+    }
+  }
 }
+
+
 
 .searchAutofill {
   margin: 110px 0 30px;

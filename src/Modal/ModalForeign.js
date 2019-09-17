@@ -22,7 +22,7 @@ const modal = props => {
             <h4>Popularity rating</h4>
           </div>
 
-          <button className="btn-continue" onClick={props.saveToDb}>
+          <button className="btn-continue saveForeignButton" onClick={props.saveToDb}>
             Save Foreign Movie
           </button>
         </div>
