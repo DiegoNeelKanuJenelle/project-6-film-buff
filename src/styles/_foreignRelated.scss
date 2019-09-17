@@ -4,12 +4,20 @@
 
 .foreignTitle {
   margin: 30px;
+
   h3 {
-    font-size: 6rem;
-    color: $puke;
-    text-transform: capitalize;
-    margin: 1% 1% 1% 0;
-    font-weight: 900;
+    margin: 10px 0 30px;
+    @include bodyFont(
+      $transform: capitalize,
+      $size: 6rem,
+      $spacing: 0.5px,
+      $color: $puke,
+      $weight: 900
+    );
+
+    @media (max-width: 1200px) {
+      font-size: calc(3.2rem + (60 - 32) * (100vw - 320px) / (1280 - 320));
+    }
   }
   p {
     color: $mermaid;
