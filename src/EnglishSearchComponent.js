@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import ForeignRelatedComponent from "./ForeignRelatedComponent";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Modal from "./Modal/Modal";
 import axios from "axios";
@@ -10,6 +8,7 @@ class EnglishSearchComponent extends Component {
     super();
     this.state = {
       userInput: "",
+      noResults: false,
       englishMovies: [],
       isShowing: false,
       selectedEnglishMovie: []
@@ -37,7 +36,7 @@ class EnglishSearchComponent extends Component {
   handleAutofill = event => {
     event.preventDefault();
     this.setState({
-      englishMovies: []
+      noResults: false
     });
     axios({
       url: `https://api.themoviedb.org/3/search/movie`,
@@ -50,8 +49,13 @@ class EnglishSearchComponent extends Component {
       }
     }).then(res => {
       const results = res.data["results"];
-
       console.log(results);
+
+      if (results.length === 0) {
+        return this.setState({
+          noResults: true
+        });
+      }
 
       const dataFromResults = [];
 
@@ -89,14 +93,24 @@ class EnglishSearchComponent extends Component {
                 onChange={this.handleChange}
                 // onKeyUp={this.handleAutofill}
               />
-              {/* <button>Search movies</button> */}
+              <button type="submit" className="visuallyHidden">
+                Search movies
+              </button>
             </form>
+            {this.state.noResults && (
+              <p className="noResults animated bounceIn">
+                No movies found. Please try another search.
+              </p>
+            )}
           </div>
         </div>
         <ul className="posterGallery">
           {this.state.englishMovies.map((movie, index) => {
             return (
-              <li className={`posterContainer poster${index} `} key={movie[4]}>
+              <li
+                className={`posterContainer poster${index} animated fadeInUp`}
+                key={movie[4]}
+              >
                 <img
                   style={{ position: "relative", zIndex: 10 }}
                   onClick={() => {

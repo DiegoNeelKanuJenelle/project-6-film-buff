@@ -10,10 +10,6 @@ nav {
   width: 100%;
   transition: all 0.35s;
 
-  &:hover {
-    background: rgba(8, 21, 25, 0.9);
-  }
-
   .wrapper {
     display: flex;
     justify-content: space-between;
@@ -46,7 +42,7 @@ nav {
     }
 
     @include for-mobile {
-      min-width: 210px;
+      min-width: 175px;
       width: 40%;
       padding: 0.75rem 0;
     }
