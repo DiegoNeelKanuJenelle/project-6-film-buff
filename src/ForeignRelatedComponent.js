@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import axios from "axios";
 import firebase from "./firebase";
 import Modal from "./Modal/ModalForeign";
@@ -51,7 +50,7 @@ class ForeignRelatedComponent extends Component {
           foreignArray: newarray
         },
         () => {
-          if (num < 20) {
+          if (num < 20 && this.state.foreignArray.length < 20) {
             num++;
             this.makeApiCall(num, narrowedGenreString);
           } else {
@@ -132,7 +131,7 @@ class ForeignRelatedComponent extends Component {
         <ul className="posterGallery">
           {this.state.arrayshuffle.map((movie, index) => {
             return (
-              <li key={movie[4]} className={`posterContainer poster${index}`}>
+              <li key={movie[4]} className={`posterContainer poster${index} `}>
                 <img
                   style={{ position: "relative", zIndex: 10 }}
                   onClick={() => {
