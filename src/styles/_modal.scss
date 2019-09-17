@@ -30,6 +30,15 @@
         );
         text-align: left;
         margin-right: 20px;
+
+        @include for-tablet{
+          font-size: 2.5rem;
+        }
+
+        @include for-mobile{
+          margin: 0;
+          font-size: 2.5rem;
+        }
     }
 
   .englishMovieReleaseModal {
@@ -41,6 +50,14 @@
     margin-left: 20px;
     font-weight: 800;
     letter-spacing: 0;
+
+    @include for-mobile{
+      display: none;;
+    }
+  }
+
+  @include for-mobile{
+    justify-content: center;
   }
 }
 
@@ -51,6 +68,22 @@
   margin: 0 auto;
   transition: all 0.8s;
   background: $modalBackground;
+
+  @include for-laptops{
+    width: 60%;
+  }
+
+  @include for-small-laptops{
+    width: 65%;
+  }
+
+  @include for-tablet{
+    width: 70%;
+  }
+  @include for-mobile{
+    width: 80%;
+  }
+
 }
 
 .fullModal {
@@ -64,12 +97,20 @@
     margin: 30px 0;
     display: flex;
     justify-content: center;
+
+    @include for-mobile{
+      margin: 15px 0;
+    }
   }
 
   .modalPosterImage {
-    width: 45%;
+    width: 50%;
     display: flex;
     justify-content: center;
+
+    @include for-mobile{
+      width: 70%;
+    }
 
     img {
       display: block;
@@ -81,6 +122,10 @@
     width: 80%;
     font-size: 1.6rem;
     line-height: 18px;
+
+    @include for-mobile{
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -91,35 +136,66 @@
   padding: 30px;
   letter-spacing: 2px;
 
+  @include for-tablet{
+    padding: 20px;
+  }
+
   h3 {
     color: $mermaid;
     font-size: 4rem;
     font-weight: 800;
     display: flex;
     align-items: center;
+
+    @include for-tablet{
+      font-size: 3rem;
+    }
   }
   h4 {
     color: $mermaid;
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 4px;
+
+    @include for-tablet{
+      letter-spacing: 2px;
+      font-size: 1.5rem;
+    }
+    
   }
+
+
 }
 
 .btn-continue {
   width: 185px;
   text-align: left;
   background-color: $modalBackground;
-  color: $puke;
-  font-size: 2rem;
+  color: $mermaid;
+  font-size: 1.5rem;
   font-weight: bold;
-  border: 1px solid $puke;
+  border: 1px solid $mermaid;
   cursor: pointer;
   padding: 10px;
+  position: relative;
+  transition: .5s;
+
+  &:hover{
+    color: $puke;
+    border: 1px solid $puke;
+  }
+  &:focus{
+    color: $puke;
+    border: 1px solid $puke;
+  }
+
+  @include for-mobile{
+    padding: 5px 2px;
+  }
+
+
+}
+.saveForeignButton{
+  text-align: center;
 }
 
-// .open-modal-btn {
-//     margin: 15px;
-//     padding: 10px;
-//     font-weight: bold;
-// }
