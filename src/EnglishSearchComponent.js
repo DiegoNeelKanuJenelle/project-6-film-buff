@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Modal from "./Modal/Modal";
 import axios from "axios";
+import ReadMoreReact from "read-more-react";
 
 class EnglishSearchComponent extends Component {
   constructor() {
@@ -133,13 +134,16 @@ class EnglishSearchComponent extends Component {
         </ul>
 
         {this.state.isShowing ? (
-          <div onClick={this.closeModalHandler} className="back-drop">
+          <div className="back-drop">
             <Modal
               className="modal-component"
               show={this.state.isShowing}
               close={this.closeModalHandler}
               englishMovie={this.state.selectedEnglishMovie}
             >
+              <div className="closeModal" onClick={this.closeModalHandler}>
+                ⤫
+              </div>
               <div className="fullModal">
                 <div className="top">
                   <h3 className="englishMovieTitleModal">
@@ -160,7 +164,7 @@ class EnglishSearchComponent extends Component {
                   </div>
                 </div>
                 <div className="modalMovieDescription">
-                  <p>{this.state.selectedEnglishMovie[3]}</p>
+                  <ReadMoreReact text={this.state.selectedEnglishMovie[3]} />
                 </div>
               </div>
             </Modal>
