@@ -50,6 +50,7 @@
     margin-left: 20px;
     font-weight: 800;
     letter-spacing: 0;
+    line-height: 1;
 
     @include for-mobile{
       display: none;;
@@ -62,6 +63,7 @@
 }
 
 .modal-wrapper {
+  max-width: 700px;
   width: 50%;
   border: 1px solid #d0cccc;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
@@ -136,8 +138,11 @@
 .read-more-button{
   color: $puke;
   cursor: pointer;
-  text-decoration: underline;
+  text-transform: uppercase;
   padding-top: 10px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 
@@ -146,7 +151,7 @@
   font-size: 50px;
   line-height: 30px;
   right: 0;
-  top: 0;
+  top: -40px;
   cursor: pointer;
 }
 
@@ -190,25 +195,38 @@
 }
 
 .btn-continue {
-  width: 185px;
+
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  width: 200px;
   text-align: left;
   background-color: $modalBackground;
-  color: $mermaid;
+  color: $puke;
   font-size: 1.5rem;
   font-weight: bold;
-  border: 1px solid $mermaid;
+  border: 1px solid $puke;
   cursor: pointer;
   padding: 10px;
   position: relative;
   transition: .5s;
+    
+  .modalArrow{
+    padding-left: 3px;
+    display: inline-block;
+  }
 
   &:hover{
-    color: $puke;
-    border: 1px solid $puke;
+    background: $background;
+    color: white;
+    border: 1px solid white;
   }
   &:focus{
     color: $puke;
     border: 1px solid $puke;
+  }
+
+  @include for-tablet{
+    width: 150px;
   }
 
   @include for-mobile{

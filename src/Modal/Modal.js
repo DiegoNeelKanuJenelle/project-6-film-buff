@@ -15,12 +15,11 @@ const modal = props => {
     >
       <div className="modal-body">{props.children}</div>
       <div className="modal-footer">
-        
         <div class="modalPopularityRating">
           <h3>{props.englishMovie[7].toFixed(0)}%</h3>
           <h4>Popularity rating</h4>
         </div>
-        
+
         <Link
           to={{
             pathname: "/Foreign",
@@ -29,7 +28,9 @@ const modal = props => {
             }
           }}
         >
-          <button className="btn-continue">Find similar foreign movies →</button>
+          <button className="btn-continue">
+            Find similar foreign movies<span className="modalArrow">→</span>
+          </button>
         </Link>
         <Route path="/Foreign" component={ForeignRelatedComponent} />
       </div>
