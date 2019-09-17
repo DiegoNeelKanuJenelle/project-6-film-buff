@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import ForeignRelatedComponent from "./ForeignRelatedComponent";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Modal from "./Modal/Modal";
 import axios from "axios";
@@ -10,6 +8,7 @@ class EnglishSearchComponent extends Component {
     super();
     this.state = {
       userInput: "",
+      noResults: false,
       englishMovies: [],
       isShowing: false,
       selectedEnglishMovie: []
@@ -37,7 +36,7 @@ class EnglishSearchComponent extends Component {
   handleAutofill = event => {
     event.preventDefault();
     this.setState({
-      englishMovies: []
+      noResults: false
     });
     axios({
       url: `https://api.themoviedb.org/3/search/movie`,
@@ -50,8 +49,13 @@ class EnglishSearchComponent extends Component {
       }
     }).then(res => {
       const results = res.data["results"];
-
       console.log(results);
+
+      if (results.length === 0) {
+        return this.setState({
+          noResults: true
+        });
+      }
 
       const dataFromResults = [];
 
@@ -75,26 +79,38 @@ class EnglishSearchComponent extends Component {
   };
   render() {
     return (
-      <div className="wrapper">
-        <div className="searchAutofill">
-          <form onSubmit={this.handleAutofill}>
-            <p>Find me an english movie</p>
-            <label className="sr-only">Enter your movie</label>
-            <input
-              type="text"
-              placeholder="Enter your movie"
-              name="userInput"
-              value={this.state.userInput}
-              onChange={this.handleChange}
-              // onKeyUp={this.handleAutofill}
-            />
-            {/* <button>Search movies</button> */}
-          </form>
+      <div>
+        <div className="wrapper">
+          <div className="searchAutofill">
+            <form onSubmit={this.handleAutofill}>
+              <p>Find me an english movie</p>
+              <label className="sr-only">Enter your movie</label>
+              <input
+                type="text"
+                placeholder="Enter your movie"
+                name="userInput"
+                value={this.state.userInput}
+                onChange={this.handleChange}
+                // onKeyUp={this.handleAutofill}
+              />
+              <button type="submit" className="visuallyHidden">
+                Search movies
+              </button>
+            </form>
+            {this.state.noResults && (
+              <p className="noResults animated bounceIn">
+                No movies found. Please try another search.
+              </p>
+            )}
+          </div>
         </div>
         <ul className="posterGallery">
           {this.state.englishMovies.map((movie, index) => {
             return (
-              <li className={`posterContainer poster${index} `} key={movie[4]}>
+              <li
+                className={`posterContainer poster${index} animated fadeInUp`}
+                key={movie[4]}
+              >
                 <img
                   style={{ position: "relative", zIndex: 10 }}
                   onClick={() => {

@@ -18,6 +18,15 @@
     @include for-mobile {
       width: 100%;
     }
+
+    img {
+      cursor: pointer;
+      transform: scale(1);
+      transition: all 0.4s;
+      &:hover {
+        transform: scale(1.07);
+      }
+    }
   }
 
   .posterContainer:nth-child(2n) {
@@ -53,21 +62,47 @@
 
 .searchAutofill {
   margin: 110px 0 30px;
+
   input {
-    @include bodyFont($color: $puke, $weight: 900, $size: 6rem);
+    @include bodyFont(
+      $color: $puke,
+      $weight: 900,
+      $size: 6rem,
+      $spacing: 0.5px
+    );
+    width: 100%;
     background: none;
     border: none;
     border-bottom: transparent 1px solid;
-    transition: all 1s;
-  }
-  input:active {
-    border-bottom: $puke 1px solid;
-  }
-  input:focus {
-    border-bottom: $puke 1px solid;
-  }
+    padding-bottom: 4px;
+    transition: all 0.5s;
 
+    &:focus {
+      border-bottom: $puke 1px solid;
+    }
+
+    @media (max-width: 1200px) {
+      font-size: calc(3.2rem + (60 - 32) * (100vw - 320px) / (1280 - 320));
+    }
+  }
   p {
-    @include bodyFont($color: $mermaid, $spacing: 5px, $transform: uppercase);
+    @include bodyFont(
+      $color: $mermaid,
+      $spacing: 5px,
+      $transform: uppercase,
+      $size: 1.5rem
+    );
+    margin-bottom: 10px;
+
+    @include for-tablet {
+      margin-bottom: 15px;
+      width: 80%;
+    }
+
+    &.noResults {
+      transform-origin: 25% center;
+      margin-top: 30px;
+      color: #fff;
+    }
   }
 }

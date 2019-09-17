@@ -9,10 +9,12 @@ const Header = () => {
     <div className="headerContainer">
       <header>
         <div className="h1Container">
-          <h1>Film Buff</h1>
+          <h1 className="animated jackInTheBox delay-1s">Film Buff</h1>
         </div>
-        <h2>Foreign movie recommendations</h2>
-        <Link to="/English" className="link">
+        <h2 className="animated fadeInUp delay-2s">
+          Foreign movie recommendations
+        </h2>
+        <Link to="/English" className="link animated fadeInUp delay-2s">
           Find a movie
         </Link>
       </header>
