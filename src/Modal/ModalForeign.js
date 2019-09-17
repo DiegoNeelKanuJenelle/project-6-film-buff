@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const modal = props => {
   return (
-    <div>
       <div
         className="modal-wrapper"
         style={{
@@ -13,6 +12,7 @@ const modal = props => {
       >
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
+
           <div class="modalPopularityRating">
             <h3>{props.modalarray.popularity.toFixed(0)}%</h3>
             <h4>Popularity rating</h4>
@@ -27,7 +27,6 @@ const modal = props => {
           </Link>
         </div>
       </div>
-    </div>
   );
 };
 export default modal;

@@ -18,8 +18,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-top: 15px;
+  align-items: flex-start;
+  padding: 15px;
 
     .englishMovieTitleModal {
         @include bodyFont(
@@ -94,7 +94,7 @@
   align-items: center;
 
   .modalPosterArea {
-    margin: 30px 0;
+    margin: 10px 0;
     display: flex;
     justify-content: center;
 
@@ -118,21 +118,43 @@
     }
   }
 
-  .modalMovieDescription {
+  .modalMovieDescription .displayed-text {
     width: 80%;
     font-size: 1.6rem;
     line-height: 18px;
+    font-weight: 100;
 
     @include for-mobile{
       font-size: 1.2rem;
     }
   }
 }
+.display-text-group{
+  display: flex;
+  justify-content: center;
+}
+.read-more-button{
+  color: $puke;
+  cursor: pointer;
+  text-decoration: underline;
+  padding-top: 10px;
+}
+
+
+.closeModal{
+  position: absolute;
+  font-size: 50px;
+  line-height: 30px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
 
 .modal-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 30px;
   letter-spacing: 2px;
 

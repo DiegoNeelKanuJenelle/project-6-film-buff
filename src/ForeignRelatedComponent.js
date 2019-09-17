@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 import firebase from "./firebase";
 import Modal from "./Modal/ModalForeign";
+import ReadMoreReact from "read-more-react";
 
 class ForeignRelatedComponent extends Component {
   constructor(props) {
@@ -147,7 +148,7 @@ class ForeignRelatedComponent extends Component {
           })}
         </ul>
         {this.state.isShowing ? (
-          <div onClick={this.closeModalHandler} className="back-drop">
+          <div className="back-drop">
             <Modal
               className="modal-component"
               show={this.state.isShowing}
@@ -155,6 +156,9 @@ class ForeignRelatedComponent extends Component {
               modalarray={this.state.selectedForeignMovie}
               saveToDb={this.saveToDb}
             >
+              <div className="closeModal" onClick={this.closeModalHandler}>
+                ⤫
+              </div>
               <div className="fullModal">
                 <div className="top">
                   <h3 className="englishMovieTitleModal">
@@ -176,7 +180,9 @@ class ForeignRelatedComponent extends Component {
                   </div>
                 </div>
                 <div className="modalMovieDescription">
-                  <p>{this.state.selectedForeignMovie.overview}</p>
+                    <ReadMoreReact
+                      text={this.state.selectedForeignMovie.overview}
+                    />
                 </div>
               </div>
             </Modal>
