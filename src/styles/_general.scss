@@ -14,6 +14,7 @@ body {
   position: absolute;
   width: 100%;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -32,8 +33,17 @@ img {
 }
 
 a {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
   text-decoration: none;
   color: #fff;
+}
+
+input {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
 }
 
 .link {

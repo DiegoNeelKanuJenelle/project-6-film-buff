@@ -48,6 +48,9 @@
 
   .savedForeignMovie {
     margin-left: auto;
+    @include for-mobile{
+      margin-left: 0;
+    }
   }
 }
 span {

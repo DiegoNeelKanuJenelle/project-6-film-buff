@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 import { BrowserView, TabletView, MobileOnlyView } from "react-device-detect";
 import BackgroundGallery from "./BackgroundGallery";
 import "./App.css";

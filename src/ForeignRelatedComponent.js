@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import axios from "axios";
 import firebase from "./firebase";
 import Modal from "./Modal/ModalForeign";
@@ -14,7 +15,8 @@ class ForeignRelatedComponent extends Component {
       foreignArray: [],
       isShowing: false,
       selectedForeignMovie: [],
-      arrayFromDb: []
+      arrayFromDb: [],
+      arrayshuffle: []
     };
   }
   componentDidMount() {
@@ -49,19 +51,18 @@ class ForeignRelatedComponent extends Component {
           foreignArray: newarray
         },
         () => {
-          if (this.state.foreignArray.length < 18) {
+          if (num < 20) {
             num++;
-            console.log(`the functio has been called ${num} times`);
             this.makeApiCall(num, narrowedGenreString);
           } else {
+            const shufflearray = [...this.state.foreignArray];
+            this.shuffle(shufflearray);
+            this.setState({
+              arrayshuffle: shufflearray
+            });
           }
         }
       );
-      const shufflearray = [...this.state.foreignArray];
-      this.shuffle(shufflearray);
-      this.setState({
-        foreignArray: shufflearray
-      });
     });
   };
 
@@ -129,9 +130,9 @@ class ForeignRelatedComponent extends Component {
           <h3>{this.props.location.state.englishMovie[0]}</h3>
         </div>
         <ul className="posterGallery">
-          {this.state.foreignArray.map((movie, index) => {
+          {this.state.arrayshuffle.map((movie, index) => {
             return (
-              <li className={`posterContainer poster${index} `} key={movie[4]}>
+              <li key={movie[4]} className={`posterContainer poster${index}`}>
                 <img
                   style={{ position: "relative", zIndex: 10 }}
                   onClick={() => {
@@ -163,13 +164,11 @@ class ForeignRelatedComponent extends Component {
                       /-.*/g,
                       ""
                     )}
-
                   </h3>
                 </div>
                 <div className="modalPosterArea">
                   <div className="modalPosterImage">
                     <img
-                      // style={{ height: "400px" }}
                       src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
                     />
                   </div>

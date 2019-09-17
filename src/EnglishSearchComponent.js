@@ -79,7 +79,7 @@ class EnglishSearchComponent extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="englishSearchComponent">
         <div className="wrapper">
           <div className="searchAutofill">
             <form onSubmit={this.handleAutofill}>
@@ -149,13 +149,13 @@ class EnglishSearchComponent extends Component {
                     {this.state.selectedEnglishMovie[6].replace(/-.*/g, "")}
                   </h3>
                 </div>
-                <div class="modalPosterArea">
+                <div className="modalPosterArea">
                   <div className="modalPosterImage">
                     <img
-                      // style={{ height: "400px" }}
                       src={`http://image.tmdb.org/t/p/w500${
                         this.state.selectedEnglishMovie[1]
                       }`}
+                      alt=""
                     />
                   </div>
                 </div>

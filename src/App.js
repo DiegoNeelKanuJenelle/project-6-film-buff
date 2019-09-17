@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./styles/App.scss";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { spring, AnimatedRoute, AnimatedSwitch } from "react-router-transition";
 import Header from "./Header";
 import EnglishSearchComponent from "./EnglishSearchComponent";
