@@ -31,7 +31,7 @@ class PublicFeed extends Component {
         <ul>
           {this.state.savedMovies.map((movie, index) => {
             return (
-              <li className="listItem" key={index}>
+              <li className="listItem animated fadeIn" key={index}>
                 <div className="savedEnglishMovie animated fadeInLeft">
                   <div className="topPublic">
                     <h3>If you liked</h3>
@@ -39,15 +39,17 @@ class PublicFeed extends Component {
                   </div>
                   <div className="bottomPublic">
                     <div className="bottomLeftFeed">
-                      <div className="linkOverlay">
-                        <p className="animated pulse infinite">
-                          Movie details <span className="arrow">&#10142;</span> 
-                        </p>
-                      </div>
                       <a
                         target="_blank"
                         href={`https://www.themoviedb.org/movie/${movie[0][1]}`}
                       >
+                        <div className="linkOverlay">
+                          <p className="animated pulse infinite">
+                            Movie details{" "}
+                            <span className="arrow">&#10142;</span> 
+                          </p>
+                        </div>
+
                         <img
                           className="publicImage"
                           src={`http://image.tmdb.org/t/p/w500${movie[0][4]}`}
@@ -79,16 +81,16 @@ class PublicFeed extends Component {
                   </div>
                   <div className="bottomPublic">
                     <div className="bottomLeftFeed">
-                      <div className="linkOverlay">
-                        <p className="animated pulse infinite">
-                          Movie details
-                          <span className="arrow">&#10142;</span> 
-                        </p>
-                      </div>
                       <a
                         target="_blank"
                         href={`https://www.themoviedb.org/movie/${movie[1][1]}`}
                       >
+                        <div className="linkOverlay">
+                          <p className="animated pulse infinite">
+                            Movie details
+                            <span className="arrow">&#10142;</span> 
+                          </p>
+                        </div>
                         <img
                           className="publicImage"
                           src={`http://image.tmdb.org/t/p/w500${movie[1][4]}`}

@@ -9,38 +9,38 @@ nav {
   left: 0;
   width: 100%;
   transition: all 0.35s;
-
+  &:hover {
+    background: rgba(8, 21, 25, 0.9);
+  }
   .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
   h3 {
     @include logoFont(3.2rem, #fff);
     line-height: 1;
     margin-bottom: -5px;
-
+    transition: color 0.3s;
+    &:hover {
+      color: $mermaid;
+    }
     @include for-tablet {
       font-size: 2.6rem;
     }
-
     @include for-mobile {
       text-align: left;
     }
   }
-
   .link {
     $color: $mermaid;
     font-size: 1.6rem;
     border: 1px solid $mermaid;
     padding: 0.75rem 1.75rem;
     text-align: center;
-
     a {
       @include bodyFont($transform: uppercase, $size: 1.8rem);
     }
-
     @include for-mobile {
       min-width: 175px;
       width: 40%;

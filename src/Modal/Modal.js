@@ -28,7 +28,7 @@ const modal = props => {
             }
           }}
         >
-          <button className="btn-continue">
+          <button className="btn-continue animated pulse">
             Find similar foreign movies<span className="modalArrow">→</span>
           </button>
         </Link>

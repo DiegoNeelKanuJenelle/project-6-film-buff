@@ -7,6 +7,7 @@ import axios from "axios";
 import firebase from "./firebase";
 import Modal from "./Modal/ModalForeign";
 import ReadMoreReact from "read-more-react";
+import isoLangs from "./languageCodes";
 
 class ForeignRelatedComponent extends Component {
   constructor(props) {
@@ -16,7 +17,9 @@ class ForeignRelatedComponent extends Component {
       isShowing: false,
       selectedForeignMovie: [],
       arrayFromDb: [],
-      arrayshuffle: []
+      renderedForeignMovies: [],
+      foreignMovieUniqueLangCodes: [],
+      arraylanguagesName: []
     };
   }
   componentDidMount() {
@@ -35,7 +38,6 @@ class ForeignRelatedComponent extends Component {
         page: num
       }
     }).then(response => {
-      console.log(response);
       const movies = response.data["results"];
 
       const filteredMovies = movies.filter(movie => {
@@ -55,11 +57,30 @@ class ForeignRelatedComponent extends Component {
             num++;
             this.makeApiCall(num, narrowedGenreString);
           } else {
-            const shufflearray = [...this.state.foreignArray];
-            this.shuffle(shufflearray);
-            this.setState({
-              arrayshuffle: shufflearray
+            // creating a duplicate of the array which contains all the foreign movies
+            const shuffleArray = [...this.state.foreignArray];
+
+            // foreignMovieLangCodes is an array which contains all the language codes for each foreign movie i.e; en or fr - BUT THERE ARE DUPLICATES HERE
+            const foreignMovieLangCodes = [];
+            shuffleArray.forEach(element => {
+              foreignMovieLangCodes.push(element.original_language);
             });
+
+            // uniqueLangCodes array contains unique language codes from the search results . This array was extracted from foreignMovieLangCodes
+            const uniqueLangCodes = [...new Set(foreignMovieLangCodes)];
+            // The Set object lets you store unique values of any datatype..
+
+            this.setState({
+              foreignMovieUniqueLangCodes: uniqueLangCodes
+            });
+            ////the above foreignMovieUniqueLangCodes has en, fr, hi for languages only
+
+            this.shuffle(shuffleArray);
+
+            this.setState({
+              renderedForeignMovies: shuffleArray
+            });
+            ////this renderedForeignMovies has the shuffled movies we got from the makeapi call and shuffled and saved
           }
         }
       );
@@ -122,6 +143,42 @@ class ForeignRelatedComponent extends Component {
     return array;
   };
 
+  filterLanguage = langCode => {
+    const foreignArrayClone = [...this.state.foreignArray];
+    // renderedForeignMovies is the array that always gets rendered to the page
+    // when we are trying to filter by language, it doesn't matter whether or not it's shuffled, so we just use the foreign array (which is unshuffled)
+    this.setState(
+      {
+        renderedForeignMovies: foreignArrayClone
+      },
+      () => {
+        const renderedForeignMoviesClone = [
+          ...this.state.renderedForeignMovies
+        ];
+
+        const moviesSelectedLanguage = renderedForeignMoviesClone.filter(
+          movie => {
+            return movie.original_language === langCode;
+          }
+        );
+        this.setState({
+          renderedForeignMovies: moviesSelectedLanguage
+        });
+      }
+    );
+  };
+
+  allLanguages = () => {
+    const foreignArrayClone = [...this.state.foreignArray];
+    this.setState({
+      renderedForeignMovies: foreignArrayClone
+    });
+  };
+
+  longname = placeholder => {
+    return isoLangs[placeholder].name;
+  };
+
   render() {
     return (
       <section className="foreignComponent">
@@ -129,8 +186,28 @@ class ForeignRelatedComponent extends Component {
           <p>Foreign movies similar to</p>
           <h3>{this.props.location.state.englishMovie[0]}</h3>
         </div>
+
+        <div className="allLanguageLinks">
+          {this.state.foreignMovieUniqueLangCodes.map(langCode => {
+            return (
+              <button
+                className="languageLinks"
+                value={langCode}
+                onClick={() => {
+                  this.filterLanguage(langCode);
+                }}
+              >
+                {this.longname(langCode)}
+              </button>
+            );
+          })}
+          <button className="languageLinks" onClick={this.allLanguages}>
+            ALL
+          </button>
+        </div>
+
         <ul className="posterGallery">
-          {this.state.arrayshuffle.map((movie, index) => {
+          {this.state.renderedForeignMovies.map((movie, index) => {
             return (
               <li
                 key={movie[4]}
@@ -180,9 +257,10 @@ class ForeignRelatedComponent extends Component {
                   </div>
                 </div>
                 <div className="modalMovieDescription">
-                    <ReadMoreReact
-                      text={this.state.selectedForeignMovie.overview}
-                    />
+                  <ReadMoreReact
+                    text={this.state.selectedForeignMovie.overview}
+                    min={60}
+                  />
                 </div>
               </div>
             </Modal>

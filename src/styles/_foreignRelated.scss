@@ -27,3 +27,34 @@
     text-align: center;
   }
 }
+
+.allLanguageLinks{
+
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.languageLinks{
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+  outline: inherit;
+  $color: $mermaid;
+  font-size: 1.6rem;
+  border: 1px solid $mermaid;
+  padding: 0.75rem 1.75rem;
+  text-align: center;
+  transition: ease .3s;
+
+}
+.languageLinks:hover{
+    background: #235856;
+    color: #fff;
+}
