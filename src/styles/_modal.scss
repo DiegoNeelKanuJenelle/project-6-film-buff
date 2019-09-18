@@ -1,5 +1,5 @@
 .back-drop {
-  background-color: rgba(48, 49, 48, 0.42);
+  background-color: rgba(0, 0, 0, 0.6);
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation-duration: 0.5s;
 }
 
 .top {
@@ -37,7 +38,7 @@
 
     @include for-mobile {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 2.4rem;
     }
   }
 
@@ -70,6 +71,7 @@
   margin: 0 auto;
   transition: all 0.8s;
   background: $modalBackground;
+  animation-duration: 0.5s;
 
   @include for-laptops {
     width: 60%;
@@ -77,6 +79,12 @@
 
   @include for-small-laptops {
     width: 70%;
+  }
+
+  @include for-mobile {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
   }
 }
 
@@ -88,7 +96,7 @@
   align-items: center;
 
   .modalPosterArea {
-    margin: 10px 0;
+    margin: 10px 0 20px;
     display: flex;
     justify-content: center;
 
@@ -113,13 +121,16 @@
   }
 
   .modalMovieDescription .displayed-text {
-    width: 80%;
+    width: 70%;
     font-size: 1.6rem;
     line-height: 18px;
     font-weight: 100;
+    line-height: 1.4;
 
     @include for-mobile {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      width: 90%;
+      text-align: center;
     }
   }
 }
@@ -137,11 +148,7 @@
   font-size: 14px;
 
   @include for-tablet {
-    font-size: 12px;
-  }
-
-  @include for-mobile {
-    font-size: 10px;
+    font-size: 1.2rem;
   }
 }
 
@@ -150,7 +157,7 @@
   font-size: 50px;
   line-height: 30px;
   right: 0;
-  top: -35px;
+  top: -42px;
   cursor: pointer;
   transition: ease-in 0.3s;
 
@@ -174,6 +181,19 @@
     padding: 10px 30px;
   }
 
+  @include for-mobile {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .modalPopularityRating {
+    @include for-mobile {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
+
   h3 {
     color: $mermaid;
     font-size: 3rem;
@@ -184,7 +204,11 @@
     @include for-tablet {
       font-size: 2rem;
     }
+    @include for-mobile {
+      text-align: center;
+    }
   }
+
   h4 {
     color: $mermaid;
     font-size: 2rem;
@@ -196,6 +220,10 @@
       font-size: 1.5rem;
     }
   }
+}
+
+.modalBtnContainer {
+  text-align: center;
 }
 
 .btn-continue {
@@ -236,6 +264,8 @@
 
   @include for-mobile {
     padding: 5px 2px;
+    width: 90%;
+    text-align: center;
   }
 }
 .saveForeignButton {

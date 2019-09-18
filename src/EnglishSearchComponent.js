@@ -12,6 +12,7 @@ class EnglishSearchComponent extends Component {
       userInput: "",
       emptyInput: false,
       noResults: false,
+      dataLoading: false,
       englishMovies: [],
       isShowing: false,
       selectedEnglishMovie: []
@@ -39,16 +40,16 @@ class EnglishSearchComponent extends Component {
   handleAutofill = event => {
     event.preventDefault();
 
+    this.setState({
+      noResults: false,
+      emptyInput: false
+    });
+
     if (!this.state.userInput) {
       return this.setState({
         emptyInput: true
       });
     }
-
-    this.setState({
-      noResults: false,
-      emptyInput: false
-    });
 
     axios({
       url: `https://api.themoviedb.org/3/search/movie`,
@@ -60,16 +61,24 @@ class EnglishSearchComponent extends Component {
         include_adult: false
       }
     }).then(res => {
-      const results = res.data["results"];
+      const results = res.data.results;
 
       const filteredMovies = results.filter(movie => {
         return movie.original_language === "en";
       });
 
+      this.setState({
+        dataLoading: true
+      });
+
+      // Error Handling - if no English movies are found
       if (results.length === 0 || filteredMovies.length === 0) {
-        return this.setState({
-          noResults: true
-        });
+        return setTimeout(() => {
+          this.setState({
+            noResults: true,
+            dataLoading: false
+          });
+        }, 1200);
       }
 
       const dataFromResults = [];
@@ -87,14 +96,26 @@ class EnglishSearchComponent extends Component {
         ]);
       });
 
-      this.setState({
-        englishMovies: dataFromResults
-      });
+      setTimeout(() => {
+        this.setState({
+          dataLoading: false,
+          englishMovies: dataFromResults
+        });
+      }, 1200);
     });
   };
   render() {
     return (
       <section className="englishComponent">
+        {this.state.dataLoading && (
+          <div className="preloaderContainer">
+            <div class="preloader">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        )}
         <div className="wrapper">
           <div className="searchAutofill animated fadeInDown">
             <form onSubmit={this.handleAutofill}>
@@ -125,7 +146,8 @@ class EnglishSearchComponent extends Component {
             )}
           </div>
         </div>
-        <ul className="posterGallery">
+
+        <ul className="posterGallery wideWrapper">
           {this.state.englishMovies.map((movie, index) => {
             return (
               <li
@@ -158,7 +180,7 @@ class EnglishSearchComponent extends Component {
         </ul>
 
         {this.state.isShowing ? (
-          <div className="back-drop">
+          <div className="back-drop animated fadeIn">
             <Modal
               className="modal-component"
               show={this.state.isShowing}

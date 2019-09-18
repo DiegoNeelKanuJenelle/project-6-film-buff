@@ -1,8 +1,5 @@
-//import react , axios and styling file.
-//Pass props to your constructor and super and in the state , create an empty foreignArray.
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 import firebase from "./firebase";
 import Modal from "./Modal/ModalForeign";
@@ -23,9 +20,7 @@ class ForeignRelatedComponent extends Component {
     };
   }
   componentDidMount() {
-    const narrowedGenreString = this.props.location.state.englishMovie[2]
-      // .splice(0, 2)
-      .join(); // narrows down genre ID string to only include the first 2 genre IDs
+    const narrowedGenreString = this.props.location.state.englishMovie[2].join();
 
     this.makeApiCall(1, narrowedGenreString);
   }
@@ -187,7 +182,7 @@ class ForeignRelatedComponent extends Component {
           <h3>{this.props.location.state.englishMovie[0]}</h3>
         </div>
 
-        <div className="allLanguageLinks">
+        <div className="allLanguageLinks animated fadeInDown delay-1s">
           {this.state.foreignMovieUniqueLangCodes.map(langCode => {
             return (
               <button

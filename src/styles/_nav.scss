@@ -30,6 +30,7 @@ nav {
     }
     @include for-mobile {
       text-align: left;
+      line-height: 1.1;
     }
   }
   .link {
@@ -42,9 +43,10 @@ nav {
       @include bodyFont($transform: uppercase, $size: 1.8rem);
     }
     @include for-mobile {
-      min-width: 175px;
+      min-width: 150px;
       width: 40%;
       padding: 0.75rem 0;
+      font-size: 1.2rem;
     }
   }
 }

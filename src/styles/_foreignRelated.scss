@@ -28,33 +28,38 @@
   }
 }
 
-.allLanguageLinks{
-
+.allLanguageLinks {
   width: 80%;
   margin: 0 auto;
   margin-bottom: 25px;
   display: flex;
   justify-content: center;
 
+  @include for-small-laptops {
+    text-align: center;
+    display: block;
+  }
 }
 
-.languageLinks{
+.languageLinks {
   background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
   outline: inherit;
   $color: $mermaid;
   font-size: 1.6rem;
   border: 1px solid $mermaid;
   padding: 0.75rem 1.75rem;
   text-align: center;
-  transition: ease .3s;
+  transition: ease 0.3s;
 
+  @include for-small-laptops {
+    padding: 10px 15px 12px;
+  }
 }
-.languageLinks:hover{
-    background: #235856;
-    color: #fff;
+.languageLinks:hover {
+  background: #235856;
+  color: #fff;
 }

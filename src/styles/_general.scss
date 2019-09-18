@@ -5,23 +5,22 @@ body {
   @include bodyFont;
   line-height: 1.2;
 }
-.route-wrapper {
-  position: relative;
-}
-.route-wrapper > * {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  min-height: 100vh;
-}
+
 .wrapper {
   width: 85%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.wideWrapper {
+  width: 95%;
+  max-width: 1700px;
+  margin: 0 auto;
   @include for-mobile {
-    width: 90%;
+    width: 100%;
   }
 }
+
 img {
   display: block;
   width: 100%;
