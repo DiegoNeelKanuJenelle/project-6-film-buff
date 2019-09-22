@@ -3,7 +3,6 @@ import "./App.css";
 import Modal from "./Modal/Modal";
 import axios from "axios";
 import ReadMoreReact from "read-more-react";
-import AutosizeInput from "react-input-autosize";
 
 class EnglishSearchComponent extends Component {
   constructor() {
@@ -122,7 +121,7 @@ class EnglishSearchComponent extends Component {
               <p>Find me an english movie</p>
               <label className="sr-only">Enter your movie</label>
 
-              <AutosizeInput
+              <input
                 type="text"
                 placeholder="Enter your movie"
                 name="userInput"

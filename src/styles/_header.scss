@@ -15,12 +15,16 @@ header {
   justify-content: center;
   align-items: center;
 
+  .h1Container {
+    mix-blend-mode: screen;
+    will-change: opacity;
+  }
+
   h1 {
     @include logoFont(12rem, #000);
     line-height: 1;
     background: #fff;
     padding: 3.5vw 4vw 1.5vw;
-    mix-blend-mode: screen;
     opacity: 0.8;
     transition: all 0.3s;
 
@@ -32,9 +36,6 @@ header {
       padding-top: 4.2vw;
     }
   }
-  .h1Container {
-    box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.3);
-  }
 
   h2 {
     @include bodyFont(
@@ -45,7 +46,7 @@ header {
       $weight: 700
     );
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
-    margin: 3rem 0;
+    margin: 3rem 0 3.3rem;
     text-align: center;
     line-height: 1.4;
 
@@ -55,13 +56,14 @@ header {
   }
 
   .link {
+    display: inline-block;
     background: $puke;
     color: $background;
     font-size: 1.8rem;
     padding: 1.5rem 2rem;
     box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.3);
-    transform: scale(1);
     transition: all 0.3s;
+    transform: scale(1);
 
     &:hover {
       background: $teal;

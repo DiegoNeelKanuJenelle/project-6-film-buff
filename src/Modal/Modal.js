@@ -1,7 +1,6 @@
 import React from "react";
-
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import ForeignRelatedComponent from "../ForeignRelatedComponent";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const modal = props => {
   return (

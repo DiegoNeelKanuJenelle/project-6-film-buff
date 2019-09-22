@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 const modal = props => {
   return (
     <div
-      className="modal-wrapper"
+      className="modal-wrapper animated zoomIn"
       style={{
         transform: props.show ? "translateY(0vh)" : "translateY(-100vh)",
         opacity: props.show ? "1" : "0"

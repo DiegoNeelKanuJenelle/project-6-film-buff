@@ -41,6 +41,7 @@ class PublicFeed extends Component {
                     <div className="bottomLeftFeed">
                       <a
                         target="_blank"
+                        rel="noopener noreferrer"
                         href={`https://www.themoviedb.org/movie/${movie[0][1]}`}
                       >
                         <div className="linkOverlay">
@@ -83,6 +84,7 @@ class PublicFeed extends Component {
                     <div className="bottomLeftFeed">
                       <a
                         target="_blank"
+                        rel="noopener noreferrer"
                         href={`https://www.themoviedb.org/movie/${movie[1][1]}`}
                       >
                         <div className="linkOverlay">

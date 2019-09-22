@@ -214,6 +214,7 @@ class ForeignRelatedComponent extends Component {
                     this.openModalHandler(movie);
                   }}
                   src={`http://image.tmdb.org/t/p/w500${movie["poster_path"]}`}
+                  alt=""
                 />
               </li>
             );
@@ -248,6 +249,7 @@ class ForeignRelatedComponent extends Component {
                   <div className="modalPosterImage">
                     <img
                       src={`http://image.tmdb.org/t/p/w500${this.state.selectedForeignMovie.poster_path}`}
+                      alt=""
                     />
                   </div>
                 </div>
