@@ -71,6 +71,27 @@ header {
       transform: scale(1.1);
     }
   }
+
+  .credits {
+    position: absolute;
+    bottom: 2.5rem;
+    @include bodyFont(
+      $size: 1.6rem,
+      $spacing: 0.3px,
+      $color: #fff,
+      $weight: 700
+    );
+
+    a {
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $puke;
+        border-color: $puke;
+      }
+    }
+  }
 }
 
 // BACKGROUND GALLERY STYLES

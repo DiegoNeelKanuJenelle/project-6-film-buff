@@ -19,6 +19,13 @@ const Header = () => {
             Find a movie
           </Link>
         </div>
+
+        <p className="credits">
+          Created by <a href="http://juandiegocodes.com">Diego</a>,
+          <a href="http://neelpatel.io"> Neel</a>,
+          <a href="http://kanusobti.com"> Kanu</a> and
+          <a href="http://jenelle.codes"> Jenelle</a>
+        </p>
       </header>
 
       <BrowserView>
