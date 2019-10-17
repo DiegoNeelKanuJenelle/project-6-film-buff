@@ -171,6 +171,8 @@ class ForeignRelatedComponent extends Component {
   };
 
   longname = placeholder => {
+    console.log(placeholder);
+    console.log(isoLangs[placeholder].name);
     return isoLangs[placeholder].name;
   };
 
