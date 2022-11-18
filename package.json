@@ -16,7 +16,7 @@
     "react-modal": "^3.10.1",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "5.0.1",
     "read-more-react": "^1.0.9"
   },
   "scripts": {
